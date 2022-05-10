@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pinta Parede</title>
+</head>
+<body>
+  <script>
+    function calculaTinta() {
+        var larguraParede = parseFloat(prompt("Qual é a largura (em metros) da parede que você quer pintar?").replace(',', '.'))
+        var alturaParede = parseFloat(prompt("Qual é a altura (em metros) da parede que você quer pintar?").replace(',', '.'))
+        litros = 2 //litros de tinta que a parede pinta indicado no rótulo
+        parede = alturaParede * larguraParede
+        tinta = parede / litros
+
+        alert(`se a tinta pinta ${litros}m² com um litro e a parede que você deseja pintar tem ${parede}m², você precisa de ${tinta}L de tinta para pintar a parede`)
+      }
+      calculaTinta()
+  </script>
+</body>
+</html>

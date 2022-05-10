@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calcula Revestimento e trincho</title>
+</head>
+
+<body>
+  <script>
+    function calculaCeramica() {
+
+      var largura = parseFloat(prompt(`Qual é a largura (em metros) da área que você quer cobrir?`).replace(',', '.'))
+
+      var altura = parseFloat(prompt(`Agora digite a altura (em metros) da área desejada?`).replace(',', '.'))
+
+      var ceramicaLargura = parseFloat(prompt(`De quantos centímetros é a largura do revestimento que você quer usar?\n(considere o revestimento posicionado na vertical com a largura sendo o menor lado do revestimento.)`).replace(',', '.'))
+      var ceramicaAltura = parseFloat(prompt(`De quantos centímetros é a altura do revestimento que você quer usar?\n(considere o revestimento posicionado na vertical com a altura sendo o maior lado do revestimento.)`).replace(',', '.'))
+
+      var posicaoRevestimento = parseInt(prompt(`O revestimento será posicionado na vertical ou na horizontal? (considere vertical com a altura sendo o maior lado do revestimento.)\n\n[1] Vertical\n[2]Horizontal`))
+
+      var cmCeramicaLargura = ceramicaLargura / 100
+      var cmCeramicaAltura = ceramicaAltura / 100
+
+
+      var areaTotal = altura * largura // da o valor da área total a ser coberta
+
+      // pega a largura e conta quantos 0,6 cm tem dentro desse valor
+
+
+      function calcRevestimentoPosicao(larguraRevestimento, alturaRevestimento) {
+
+        var quantasPecasInteirasNaLargura = largura / cmCeramicaLargura
+        console.log(`quantasPecasInteirasNaLargura: ${quantasPecasInteirasNaLargura}`); // 6
+        var quantasPecasInteirasNaAltura = altura / cmCeramicaAltura
+        console.log(` quantasPecasInteirasNaAltura: ${quantasPecasInteirasNaAltura}`) // 14.000000000000002
+        var pecasInteiras = quantasPecasInteirasNaLargura * quantasPecasInteirasNaAltura // me diz a quantidade de peças inteiras que precisa
+        console.log(`pecasInteiras: ${pecasInteiras}`) //84.00000000000001
+        var adicionalPecasInteirasLargura = 0
+        var adicionalPecasInteirasAltura = 0
+  
+  
+        // ###  calculando os trinchos da largura
+  
+        var sobraTrinchoLargura = Math.ceil(largura % cmCeramicaLargura) // tô pegando o resto da divisão pra calcular os trinchos
+        console.log(`sobraTrinchoLargura: ${sobraTrinchoLargura}`) // 2.220446049250313e-16
+        // calcular o trincho: se o resto da divisão entre a largura e o tamanho da cerâmica maior que 0 quer dizer que vai precisar de trincho pra cobrir o que falta.
+        if (sobraTrinchoLargura > 0) {
+          // calcular trincho metade
+          var trinchoMetadeLargura = cmCeramicaLargura / 2 // calculando o valor do trincho que é metade da peça inteira
+          console.log(`trinchoMetadeLargura: ${trinchoMetadeLargura}`) //0.3
+          var quantosTrinchoMetadeLargura = Math.ceil(sobraTrinchoLargura / trinchoMetadeLargura) // vendo quantos trincho de peça cortada ao meio precisam
+          console.log(`quantosTrinchoMetadeLargura ${quantosTrinchoMetadeLargura}`) //7.401486830834377e-16
+          var sobraTrinchoMetadeLargura = sobraTrinchoLargura % trinchoMetadeLargura // se depois de calcular os trincho metade ainda sobrar resto nessa divisão, quer dizer que ainda falta area pra cobrir, então vamos calcular o trincho metade da metade
+          console.log(`sobraTrinchoMetadeLargura: ${sobraTrinchoMetadeLargura}`) // 
+          
+          
+          if (sobraTrinchoMetadeLargura > 0) {
+            // calcular trincho metade da metade
+            var trinchoMetadeDaMetadeLargura = trinchoMetadeLargura / 2
+            console.log(`trinchoMetadeDaMetadeLargura: ${trinchoMetadeDaMetadeLargura}`) //  0.15
+            var quantosTrinchoMetadeDaMetadeLargura = Math.ceil(sobraTrinchoMetadeLargura / trinchoMetadeDaMetadeLargura) //vendo quantos trinchos de peça cortada na metade da metade precisam.
+            console.log(`quantosTrinchoMetadeDaMetadeLargura: ${quantosTrinchoMetadeDaMetadeLargura}`) //1.4802973661668755e-15
+            
+            var sobraTrinchoMetadeDaMetadeLargura = sobraTrinchoMetadeLargura % trinchoMetadeDaMetadeLargura
+            console.log(`sobraTrinchoMetadeDaMetadeLargura: ${sobraTrinchoMetadeDaMetadeLargura}`) // 2.220446049250313e-16
+            
+            if (sobraTrinchoMetadeDaMetadeLargura > 0) {
+              // adicionando mais uma peça inteira
+              adicionalPecasInteirasLargura += 1
+              console.log(`adicionalPecasInteirasAltura: ${adicionalPecasInteirasLargura}`) // 1
+            }
+          } else {
+            quantosTrinchoMetadeDaMetadeLargura = 0
+          }
+          
+        } else {
+          quantosTrinchoMetadeLargura = 0
+          quantosTrinchoMetadeDaMetadeLargura = 0
+        }
+  
+          // ###  calculando os trinchos da Altura
+  
+          var sobraTrinchoAltura = Math.ceil(altura % cmCeramicaAltura) // tô pegando o resto da divisão pra calcular os trinchos
+          console.log(`sobraTrinchoAltura: ${sobraTrinchoAltura}`) //6.661338147750939e-16
+  
+          // calcular o trincho: se o resto da divisão entre a Altura e o tamanho da cerâmica maior que 0 quer dizer que vai precisar de trincho pra cobrir o que falta.
+          if (sobraTrinchoAltura > 0) {
+            // calcular trincho metade
+            var trinchoMetadeAltura = cmCeramicaAltura / 2 // calculando o valor do trincho que é metade da peça inteira
+            console.log(`trinchoMetadeAltura: ${trinchoMetadeAltura}`) // 0.3
+            var quantosTrinchoMetadeAltura = Math.ceil(sobraTrinchoAltura / trinchoMetadeAltura) // vendo quantos trincho de peça cortada ao meio precisam
+            console.log(`quantosTrinchoMetadeAltura: ${quantosTrinchoMetadeAltura}`) // 2.220446049250313e-15
+            var sobraTrinchoMetadeAltura = sobraTrinchoAltura % trinchoMetadeAltura // se depois de calcular os trincho metade ainda sobrar resto nessa divisão, quer dizer que ainda falta area pra cobrir, então vamos calcular o trincho metade da metade
+            console.log(`sobraTrinchoMetadeAltura: ${sobraTrinchoMetadeAltura}`) //  6.661338147750939e-16
+            if (sobraTrinchoMetadeAltura > 0) {
+              // calcular trincho metade da metade
+              var trinchoMetadeDaMetadeAltura = trinchoMetadeAltura / 2
+              console.log(`trinchoMetadeDaMetadeAltura: ${trinchoMetadeDaMetadeAltura}`) // 0.15
+              var quantosTrinchoMetadeDaMetadeAltura = Math.ceil(sobraTrinchoMetadeAltura / trinchoMetadeDaMetadeAltura) //vendo quantos trinchos de peça cortada na metade da metade precisam.
+              console.log(`quantosTrinchoMetadeDaMetadeAltura: ${quantosTrinchoMetadeDaMetadeAltura}`) // 4.440892098500626e-15
+              var sobraTrinchoMetadeDaMetadeAltura = sobraTrinchoMetadeAltura % trinchoMetadeDaMetadeAltura
+              console.log(`sobraTrinchoMetadeDaMetadeAltura: ${sobraTrinchoMetadeDaMetadeAltura}`) // 6.661338147750939e-16
+  
+              if (sobraTrinchoMetadeDaMetadeAltura > 0) {
+                // adicionando mais uma peça inteira
+                adicionalPecasInteirasAltura += 1
+                console.log(`adicionalPecasInteirasAltura: ${adicionalPecasInteirasAltura}`) // 1
+              }
+            } else {
+              quantosTrinchoMetadeDaMetadeAltura = 0
+            }
+            
+          } else {
+              quantosTrinchoMetadeAltura = 0
+              quantosTrinchoMetadeDaMetadeAltura = 0
+            
+          }
+  
+  
+          //calculando quantas peças precisa pra fazer os trinchos
+          var quantosTrinchosMetadeTotais = quantosTrinchoMetadeLargura + quantosTrinchoMetadeAltura
+          console.log(`quantosTrinchosMetadeTotais: ${quantosTrinchosMetadeTotais}`) // 2.960594732333751e-15
+          
+          var pecaTrinchoMetade = quantosTrinchosMetadeTotais / 2
+          console.log(`pecaTrinchoMetade: ${pecaTrinchoMetade}`);
+          
+          var quantosTrinchosMetadeDaMetadeTotais = quantosTrinchoMetadeDaMetadeLargura + quantosTrinchoMetadeDaMetadeAltura
+          console.log(`quantosTrinchosMetadeDaMetadeTotais: ${quantosTrinchosMetadeDaMetadeTotais}`) // 5.921189464667502e-15
+          
+          var pecaTrinchoMetadeDaMetade = quantosTrinchosMetadeDaMetadeTotais / 4
+          console.log(`pecaTrinchoMetade: ${pecaTrinchoMetadeDaMetade}`);
+  
+  
+          var totalPecas = pecasInteiras + adicionalPecasInteirasAltura + adicionalPecasInteirasLargura + pecaTrinchoMetade + pecaTrinchoMetadeDaMetade
+          console.log(`totalPecas: ${totalPecas}`) // 86.00000000000001
+  
+          if(quantosTrinchosMetadeTotais == 0 && quantosTrinchosMetadeDaMetadeTotais == 0) {
+            alert(`Para cobrir uma área de ${areaTotal.toFixed(2).replace('.', ',')}m² você precisa de:\n\n${Math.ceil(pecasInteiras)} peças inteiras.\n\nEntão, indico que você compre ${Math.ceil(totalPecas)} peças inteiras`)
+          } else if(quantosTrinchosMetadeTotais == 0) {
+            alert(`Para cobrir uma área de ${areaTotal.toFixed(2).replace('.', ',')}m² você precisa de:\n\n${Math.ceil(pecasInteiras)} peças inteiras,\n${Math.ceil(quantosTrinchosMetadeDaMetadeTotais)} trinchos cortados na metade da metade (que podem ser feitos utilizando ${Math.ceil(pecaTrinchoMetadeDaMetade)} peças inteiras).\n\nEntão, indico que você compre ${Math.ceil(totalPecas)} peças inteiras`)
+          } else if(quantosTrinchosMetadeDaMetadeTotais == 0) {
+            alert(`Para cobrir uma área de ${areaTotal.toFixed(2).replace('.', ',')}m² você precisa de:\n\n${Math.ceil(pecasInteiras)} peças inteiras,\n${Math.ceil(quantosTrinchosMetadeTotais)} trinchos cortados ao meio (que podem ser feitos utilizando ${Math.ceil(pecaTrinchoMetade)} peças inteiras).\n\nEntão, indico que você compre ${Math.ceil(totalPecas)} peças inteiras`)
+          } else {
+            alert(`Para cobrir uma área de ${areaTotal.toFixed(2).replace('.', ',')}m² você precisa de:\n\n${Math.ceil(pecasInteiras)} peças inteiras,\n${Math.ceil(quantosTrinchosMetadeTotais)} trinchos cortados ao meio (que podem ser feitos utilizando ${Math.ceil(pecaTrinchoMetade)} peças inteiras) e \n${Math.ceil(quantosTrinchosMetadeDaMetadeTotais)} trinchos cortados na metade da metade (que podem ser feitos utilizando ${Math.ceil(pecaTrinchoMetadeDaMetade)} peças inteiras).\n\nEntão, indico que você compre ${Math.ceil(totalPecas)} peças inteiras.`)
+  
+          }
+      }
+
+
+      if (posicaoRevestimento == 1) {
+        calcRevestimentoPosicao(cmCeramicaLargura, cmCeramicaAltura)
+      } else if (posicaoRevestimento == 2) {
+        calcRevestimentoPosicao(cmCeramicaAltura, cmCeramicaLargura)
+      }
+    }
+    calculaCeramica()
+
+  </script>
+</body>
+
+</html>

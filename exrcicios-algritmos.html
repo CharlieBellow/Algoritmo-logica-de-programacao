@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>exercícios</title>
+</head>
+
+<body>
+  <script>
+    // Exercícios de Algoritmos
+    // 1) Escreva um programa que mostre na tela a mensagem "Olá, Mundo!"
+    //alert("olá mundo!")
+
+    //2) Faça um programa que leia o nome de uma pessoa e mostre uma mensagem de boasvindas para ela:
+    //Ex:
+    //Qual é o seu nome ? João da Silva
+    //Olá João da Silva, é um prazer te conhecer!
+
+    //var nome = prompt("qual o seu nome?")
+    //alert("bem-vinde, " + nome)
+
+    /* 3) Crie um programa que leia o nome e o salário de um funcionário, mostrando no
+    final uma mensagem.
+    Ex:
+    Nome do Funcionário: Maria do Carmo
+    Salário: 1850,45
+    O funcionário Maria do Carmo tem um salário de R$1850,45 em Junho. */
+
+    // exibindo o salário em português com vírgula...
+    //var nome = prompt("informe seu nome");
+    //var salario = parseFloat(prompt("informe o seu salário").replace(',', '.'))
+    //alert(`${nome}, pessoa colaboradora na empresa recebe um salário de R$${salario.toFixed(2).replace('.', ',')}`)
+
+    // aula 9: 
+    // exercício1: contagem inteligente:
+    //var num1 = parseInt(prompt("diga um número: "))
+    //var num2 = parseInt(prompt("diga outro número: "))
+
+    // se o menor número for o primeiro, conta do maior par ao menor,
+    // senao conta do maior para o menor (regressivo) 
+
+    //
+    //if (num1 < num2) {
+    //  console.log(`os números foram: ${num1} e ${num2}`);
+    //  while(num1 <= num2) {
+    //    console.log(num1 + " ...");
+    //    num1 += 1
+    //  }
+    //} else if (num1 > num2) {
+    //  console.log(`os números foram: ${num1} e ${num2}`);
+    //  while(num1 >= num2) {
+    //    console.log(num1 + " ..."); 
+    //    num1 -= 1
+    //  }
+    //
+    //}
+
+    // contar de 1 a 6 - contagem crescente
+
+    // contar de 8 a 0 - contagem regressiva
+
+
+
+
+    // exercício 2: melhor aluno da turma
+
+    // escola santa paciência: 
+    // aluno1: jose - 8.5
+    // aluno2: paulo - 5.5
+    // aluno3: ana - 7
+    // aluno4: gustavo - 0
+
+    //saida: o melhor aproveitamento foi de josé
+
+
+    //
+    //var qAlunos = parseInt(prompt("quantos alunos a turma tem?"))
+    //var n = 1
+    //var maior = 0
+    //  var aluno
+    //  var nota
+    //  var melhorAluno
+    //while (n <= qAlunos) {
+    //  aluno = prompt(`qual o nome do ${n}º aluno?`);
+    //  nota = parseFloat(prompt(`qual a nota do ${n}aluno?`).replace(",", "."))
+    //  n += 1
+    //
+    //  if(nota > maior) {
+    //    maior = nota.toFixed(1).replace('.', ",")
+    //    melhorAluno = aluno
+    //  }
+    //}
+    //alert(`o melhor aproveitamento foi do aluno: ${melhorAluno} que tirou a nota ${maior}`);
+
+
+    // aula 10: Estruturas de Repetição 2 ---------------------------
+
+    //exercicio 1: super contador
+
+    //input: {1} pra contar de 1 a 10, (se a resposta for 1)
+    //{2} de 10 a 1 (se a resposta for 2)
+    // {3} sair (while - até que a resposta seja 3)
+
+    //var resposta
+
+    //  while (resposta != "3"){
+    //    var resposta = parseInt(prompt(
+    //      `---------- Super contador: ----------- \n 
+    // Digite [1] para contar de 0 a 10 \n 
+    // Digite [2] para contar de 10 a 0 \n 
+    // Digite [3] para Sair`
+    //    ))
+    //    var contador
+    //  if(resposta == 1) {
+    //    contador = 0
+    //    while (contador <= 10) {
+    //      console.log(contador + " ...");
+    //      contador += 1
+    //    }
+    //
+    //  } else if (resposta == 2) {
+    //    contador = 10
+    //    while(contador >= 0) {
+    //      console.log(contador + " ... ");
+    //      contador -= 1
+    //    }
+    //  } else if (resposta == 3) {
+    //
+    //  }
+    //}
+
+    //exercicio 2: escolhendo pessoas ------------------------------
+
+    // qual genero?
+    //qual idade?
+    // qual cor do cabelo? : [1] preto [2] castanho [3] loiro [4] ruivo
+    //input quer continuar? (s/n)
+    // se s volta pro início, se n sai
+
+    // no final tem que dizer: 
+    //quantos homens tem cabelo castanho e 
+    //quantas mulheres estão entre 25 e 30 anos e são loiras
+    //var resposta = "s"
+    //var n = 1
+    //var homemN = 0
+    //var mulherN = 0
+    //  while (resposta != "n" && resposta == "s"){
+    //  var genero = prompt("qual o gênero da pessoa " + n + " ? (M/F)")
+    //  var idade = prompt("qual a idade da pessoa "  + n + " ?")
+    //  var cabelo = prompt("qual a cor do cabelo da pessoa " + n + ` ? \n
+    //  [1] preto \n
+    //  [2] castanho \n
+    //  [3] loiro \n
+    //  [4] ruivo 
+    //  `)
+    //
+    //  n += 1
+    //
+    //  resposta = prompt("quer continuar? (s/n)")
+    //
+    //  if(genero == "m" && idade >= 18 && cabelo == 2) {
+    //    homemN += 1
+    //  }
+    //
+    //  if (genero == "f" && idade <= 30 && idade >= 25 && cabelo == 3) {
+    //    mulherN += 1
+    //  }
+    //}
+    //
+    //alert(`O número de homens que tem cabelo castanho e são maiores de 18 anos é: ${homemN} \n 
+    //e o número de mulheres que estão entre 25 e 30 anos e são loiras é: ${mulherN}`)
+
+    // aula 11:
+
+    // exercício 1: sequência de fibonacci ------------------------- já foi refeito 
+    //somar os dois primeiros, depois os dois últimos, depois os dois últimos.. e assim vai... cada número é calculado pela soma dos dois anteriores
+    //
+    //    var v1 = 0
+    //    var v2 = 1
+    //
+    //for(i= 1; i <= 15; i++){
+    //  var novoValor = v1 + v2
+    //  console.log(novoValor);
+    //  v1 = v2
+    //  v2 = novoValor
+    //  
+    //}
+
+
+
+
+
+
+    // exercicio 2: analisador de valores ------------------------
+
+    // 5 valores: 
+    /* 
+    mostrar a soma dos valores, 
+    media entre eles, (soma dos valores dividio por 5)
+    quantos são divisíveis por 5, v % 5 == 0
+    quantos são nulos, 0 == nulo
+    soma dos numeros pares v%2==0
+     */
+
+    //var soma = 0
+    //var divCinco = 0
+    //var media = 0
+    //var nulo = 0
+    //var sPar = 0
+    //
+    //for(let i = 1; i <= 5; i++) {
+    //  var valor = parseInt(prompt(`digite o ${i}º valor: `))
+    //
+    //  soma += valor
+    //
+    //  media = soma / 5
+    //
+    //  if(valor % 5 == 0 || valor != 0 ) {
+    //    divCinco = divCinco + 1
+    //  }
+    //  
+    //  if(valor == null || valor == 0) {
+    //    nulo += 1
+    //  }
+    //
+    //  if(valor % 2 == 0) {
+    //    sPar += valor
+    //  }
+    //
+    //  console.log(`o ${i}º digitado foi: ${valor}`);
+    //}
+    //
+    //console.log(`
+    //a soma entre os valores é: ${soma}, \n
+    //a media entre os valores é: ${media},\n
+    //a quantidade de números divisíveis por 5 é: ${divCinco},\n
+    //existem ${nulo} números nulos, \n
+    //e a soma dos números pares é: ${sPar}
+    //`);
+
+
+    // refazer todos os exercícios usando procedimentos (funções) do tipo valor e do tipo referência ------------- ok --------------
+
+
+    // aula 14 -: vetores (arrays)
+
+    // exercício 1: torneio de futebol ----------------------------------
+
+    // aqui é um for dentro do outro percorrendo o array e comparando com outro array ou com ele mesmo
+
+    //ler o nome de 3 times
+    //var times = new Array(3)
+    //
+    //for(let i = 0; i < times.length; i++) {
+    //  time = prompt(`qual o nome do time?`)
+    //  times[i] = time
+    //  console.log(times);
+    //}
+
+    /* 
+    fazer uma tabela de jogos que exiba as combinações possíveis entre esses 3 times sem repetições. Ex.: vasco não pode jogar contra vasco
+    */
+
+    //var jogos = new Array
+    //
+    //for (let index = 0; index < (times.length-1); index++) {
+    //  for(let i = 1; i < times.length; i++) {
+    //    if(times[i] != times[index]) {
+    //      timeCasa = `${times[i]} [ ] X [ ] ${times[index]}`
+    //      timeConvidado = `${times[index]} [ ] X [ ] ${times[i]}`
+    //
+    //      console.log(timeCasa);
+    //      console.log(timeConvidado);
+    //    }
+    //
+    //    //for (let index = 0; index < times.length; index++) {
+    //    //  if (times[index] != times[i]) {
+    //    //  }
+    //    //}
+    //
+    //  }
+    //  
+    //}
+
+    /* exercício 2: corrigindo provas ------------------------------
+    
+    passo 1: cadastrar o gabarito de uma prova de 5 questões:
+    - questão 1: a
+    - questão 2: b
+    - questão 3: c
+    - questão 4: d
+    - questão 5: a
+    */
+    //var gabarito = new Array(5)
+    //for (let index = 0; index < gabarito.length; index++) {
+    //  var questao = prompt("Digite a resposta da " + (index+1) +"ª questão") 
+    //  gabarito[index] = questao;
+    //  
+    //}
+    //console.log(gabarito);
+
+    //console.log(gabarito[0].questão1); // pegando o valor da questão
+
+
+    /*
+    passo 2: cadastrar as respostas do alunos:
+    leia nome e a resposta pra cada questão de 3 alunos:
+    nome: Pedro 
+    - questão 1: a
+    - questão 2: c
+    - questão 3: d
+    - questão 4: b
+    - questão 5: a
+    
+    obs.: cada questão vale 2,0 pontos
+    */
+    //var respostas = new Array(3)
+    //var notas = new Array(3)
+    //var alunos = new Array(3)
+    //for (let i = 0; i <= 2; i++) {
+    //  var aluno = prompt(`Qual o nome do aluno?`)
+    //  alunos[i] = aluno
+    //  
+    //  console.log(aluno);
+    //
+    //
+    //  var notaAluno = 0
+    //
+    //  for(let index = 0; index < (gabarito.length); index++) {
+    //    //console.log(gabarito.length)
+    //    var respostaAluno = prompt(`qual a resposta da ${index + 1}ª questão do aluno ${aluno}`)
+    //    respostas[i] = respostaAluno
+    //    console.log(respostas[i]);
+    //    
+    //    if (respostaAluno == gabarito[index]) {
+    //        notaAluno += 2
+    //      }
+    //  }
+    //
+    //
+    //    notas[i] = notaAluno
+    //
+    //  //console.log(notaAluno);
+    //  console.log(`nota do ${i + 1} aluno: ${notas[i]}`);
+    //
+    //}
+
+    /*
+    
+    passo 3: exibir as notas finais
+    
+    aluno 1: 10,0
+    aluno 2: 8,5
+    aluno 3: 5,0
+    
+    média da turma: 4,0
+    
+    */
+
+    //console.log(notas);
+    //  console.log(alunos);
+
+
+    // descobrir a média: percorrer o array notas e somas os valores depois dividir por 3
+    //var aux 
+    //var soma = 0
+    //for (let i = 0; i < notas.length; i++){
+    //  aux = notas[i]
+    //  soma += aux
+    //}
+    //
+    //media = soma / 3
+    //console.log(media);
+
+
+    // exibir a nota e o aluno: alunos[0] + nota[0]
+    //for (let i = 0; i < notas.length; i++) {
+    //  console.log(`${alunos[i]}:  ${notas[i]}`);
+    //}
+    //console.log(`a média da turma é: ${media.toFixed(2).replace('.', ',') }`)
+
+    /* exercício 3: reservar espaço no cinema -------------------------------------------------------------------
+    considere a fileira b com 10 cadeiras
+    */
+
+    //function exerc3() {
+    //
+    //  var cadeiras = new Array(10);
+    //  
+    //  //mostre os espaços disponíveis:
+    //  //[ b 1 ] [ b 2 ] [ b 3 ] [ b 4 ] [ b 5 ] [ b 6 ] [ b 7 ] [ b 8 ] [ b 9 ] [ b 10 ]
+    //  for (let index = 0; index < cadeiras.length; index++) {
+    //    cadeiras[index] = {
+    //      codigo: `B${index +1}`,
+    //      status: "disponível"
+    //    }
+    //  }
+    //  console.log(cadeiras);
+    //  // imprimir com espaços e o status da cadeira
+    //  
+    //  //leia o lugar disponível que a pessoa quer reservar. ex: b3
+    //  //pergunte se quer reservar outro: (s/n)
+    //
+    //  var reserva
+    //  var resposta = "s"
+    //  var textoPrompt
+    //  while(resposta == 's') {
+    //    textoPrompt = ""
+    //    for(let i = 0; i < cadeiras.length; i++) {
+    //      textoPrompt += `${cadeiras[i].codigo}: ${cadeiras[i].status}
+    //      `
+    //    }
+    //    
+    //    reserva = prompt(`qual lugar você quer reservar?
+    //    ${textoPrompt}
+    //    `).toUpperCase()
+    //    
+    //    for (let index = 0; index < cadeiras.length; index++) {
+    //      if(cadeiras[index].codigo == reserva) {
+    //        
+    //        if(cadeiras[index].status == "disponível") {
+    //          cadeiras[index].status = "Indisponível"
+    //          
+    //        } else {
+    //          alert("esse lugar não está disponível")
+    //        }
+    //        
+    //      }
+    //      
+    //    }
+    //    
+    //    resposta = prompt("quer reservar outro lugar? (s/n)")
+    //  }
+    //}
+    //
+    //exerc3()
+
+    // ou eu tiro de dentro do array o acento que está disponível pra que quando fizer a verificação e nao encontrar, ele mostrar o alert dizendo que não tem. OOOOU eu invento uma forma de fazer ele entender que o acento está disponível.
+
+    /*
+    se a pessoa digitar sim, mostra novamente os espaços disponíveis, mas o espaço b3 não vai estar disponível. nesse caso eu faço o array[x] (posição do número reservado receber outro valor, tip "INDISPONÍVEL"). Pra isso vou ter que percorrer o array  e ver se nele inclui o termo pesquisado, se tiver eu troco. e tenho que verificar antes se na posição que a pessoa quer tem a palavra insdiponível se tiver loga dizendo que está indisponível 
+    
+    se tentar reservar a b3 tem que dizer que o lugar está ocupado.
+    
+    */
+
+
+    //aula 15: matrizes
+
+    //exercício 1: dissecando matrizes ===========================================================
+
+    /* 
+    criar na tela uma matriz de 4ª ordem
+    dar a opção do usuário poder exibir: 
+    1 - a matriz inteira, 
+    2 - a diagonal principal, 
+    3 - o triangulo superior 
+    ou 
+    4 - o triangulo inferior
+    5 sair
+    */
+
+    //function getInputNumber(texto) {
+    //  input = parseInt(prompt(` ${texto} `))
+    //  return input
+    //}
+    //
+    //var matriz = [
+    //  new Array(4),
+    //  new Array(4),
+    //  new Array(4),
+    //  new Array(4)
+    //]
+    //
+    //for(let linha = 0; linha < matriz.length; linha++) {
+    //  for (let coluna = 0; coluna < matriz.length; coluna++) {
+    //    matriz[linha][coluna] = Math.floor(Math.random() * 10) // gerando números aleatórios de 1 a 10
+    //    
+    //  }
+    //}
+    //console.log(matriz);
+    //
+    //while(!(resposta == 5)) {
+    //
+    //  var resposta = getInputNumber(`
+    //  informe o número do conteúdo que você quer exibir:
+    //  
+    //  [1] - a matriz inteira, 
+    //  [2] - a diagonal principal, 
+    //  [3] - o triangulo superior,  
+    //  [4] - o triangulo inferior,
+    //  [5] - sair
+    //  `)
+    //  
+    //  if(resposta == 1) {
+    //    console.log(matriz);
+    //    break;
+    //  } else
+    //  
+    //  if(resposta == 2) {
+    //    for(linha = 0; linha < matriz.length; linha++) {
+    //      for(coluna = 0; coluna < matriz.length; coluna++) {
+    //      
+    //        if(linha == coluna){
+    //          console.log(matriz);
+    //  
+    //          console.log(matriz[linha][coluna]);
+    //        }
+    //      } 
+    //    }
+    //    break;
+    //  } else
+    //  
+    //  if (resposta == 3) {
+    //    for(let l = 0; l < matriz.length - 1; l++) {
+    //      for (let c = 1; c < matriz.length; c++) {
+    //        if(l == c) {
+    //          continue;
+    //        }
+    //        
+    //        if(l > c) {
+    //          continue;
+    //        }
+    //        
+    //        console.log(matriz[l][c]);
+    //        console.log(`posição: [${l}, ${c}]`);
+    //        
+    //        // posição 0
+    //        //matriz[0][1]
+    //        //matriz[0][2]
+    //        //matriz[0][3]
+    //          
+    //        // posição 1
+    //        //matriz[1][2]
+    //        //matriz[1][3]
+    //        
+    //        // posição 2
+    //        //matriz[2][3]
+    //        
+    //      } 
+    //        
+    //    }  
+    //
+    //    break;
+    //
+    //  } else
+    //    
+    //  if(resposta == 4) {
+    //
+    //    for (let l = 1; l < matriz.length; l++) {
+    //      for (let c = 3; c >= 0; c--) {
+    //      
+    //        if(l == c) {
+    //        continue;
+    //      }
+    //
+    //      if(l <= c ) {
+    //        continue
+    //      }
+    //    
+    //      console.log(matriz[l][c]);
+    //      console.log(`posição: [${l}, ${c}]`);
+    //    }
+    //    
+    //  }
+    //    // posição 0
+    //        //nada
+    //          
+    //        // posição 1
+    //        //matriz[1][0]
+    //   
+    //        // posição 2
+    //        //matriz[2][0]
+    //        //matriz[2][1]
+    //
+    //          // posição 3
+    //        //matriz[3][0]
+    //        //matriz[3][1]
+    //        //matriz[3][2]
+    //
+    //    break;
+    //  } else
+    //  
+    //  
+    //    if(resposta == 5) {
+    //      alert("Saindo...")
+    //      break;
+    //    
+    //    } else {
+    //      alert("essa opção não existe, tente novamente");
+    //    }
+    //}
+    //exercício 2: jogo da velha ============================================================
+
+    /* 
+    pergunta: vai jogar x em qual posição?
+    coloca o x na posição indicada
+    vai colocar O em qual posição?
+    coloca o O na posição indicada
+    
+    se a pessoa quiser jogar em uma posição que nao existe, não pode deixar ele jogar
+    e quando formar uma diagonal ou uma linha o jogo é finalizado e mostra quem ganhou 
+    e se der velha finaliza o jogo tbm e diz que deu velha
+    */
+
+    //function jogoVelha() {
+    //
+    //      var tablado = [
+    //        new Array(3),
+    //        new Array(3),
+    //        new Array(3),
+    //      ]
+    //
+    //var n = 1
+    //
+    //      for (let linha = 0; linha < tablado.length; linha++) {
+    //        for (let coluna = 0; coluna < tablado.length; coluna++) {
+    //          tablado[linha][coluna] = {
+    //            status == ${n}`,
+    //            status: " "
+    //          }
+    //          n += 1
+    //        }
+    //      }
+    //var num = 0
+    //
+    //// no caso eu teria que ter um laço de repetição que iria encontrar em qual posição de linha e coluna está o numero referente a minha entrada, depois disso pegaria essa posição e faria a adição do x ou da bola. e depois retornaria o processo..
+    //// resolver essa questão do q não sair de primeira
+    //      console.log(tablado);
+    //      while (!(jogada == "q")) {
+    //        
+    //        for (let linha = 0; linha < tablado.length; linha++) {
+    //          for (let coluna = 0; coluna < tablado.length; coluna++) {
+    //           
+    //            
+    //            
+    //            
+    //            if(num % 2 == 0) {
+    //              var jogada = prompt(`quer jogar O em qual posição?
+    //              
+    //              pressione (Q) para sair`)
+    //              
+    //            }
+    //            console.log(`num: ${num}`);
+    //            
+    //            if(num % 2 == 1) {
+    //              var jogada = prompt(`quer jogar "X" em qual posição?
+    //              
+    //              pressione (Q) para sair`)
+    //            }
+    //            console.log(`num: ${num}`);
+    //            
+    //            console.log(`jogada: ${jogada}`);
+    //            
+    //            // falta colocar se a entrada for maior que o tamanho da matriz
+    //            //falta fazer a jogada reconhecer a entrada em qualquer ordem. aqui ele está percorrendo o array e só acha quando a entrada corresponde. nesse caso, precisa tirar do laço de repetição.
+    //            if (tablado[linha][coluna].posicao.includes(jogada)) {
+    //              // se a jogada é igual a posição que o número está
+    //
+    //              if (tablado[linha][coluna].status == " ") {
+    //                console.log(`num % 2  : ${num % 2}`);
+    //                console.log(`num: ${num}`);
+    //            
+    //                // switch case?
+    //                if (num % 2 == 0) {
+    //
+    //                  tablado[linha][coluna].posicao = `("o") (${linha}, ${coluna})`
+    //                  tablado[linha][coluna].status = `"o"`
+    //                } 
+    //
+    //                console.log(`num: ${num}`);
+    //
+    //                if (num % 2 == 1) {
+    //                  tablado[linha][coluna].posicao = `("x") (${linha}, ${coluna})`
+    //                  tablado[linha][coluna].status = `"x"`
+    //                } 
+    //                
+    //                console.log(`num: ${num}`);
+    //                num += 1
+    //                console.log(`num: ${num}`);
+    //
+    //            
+    //                //else {
+    //                //  alert("essa jogada nao é permitida")
+    //                //}
+    //              } 
+    //
+    //            }
+    //            //console.log(tablado[linha][coluna].posicao);
+    //            //console.log(tablado[linha][coluna].status);
+    //
+    //            // com estou me guiando pela coluna ela sempre muda percorrendo o indice do array da coluna que é sempre nessa ordem 0(par), 1(impar), 2 (par), na proxima linha ele vai percorrer essa sequencia novamente fazendo com que o póximo numero da lista seja 0, por isso temos uma sequência de 2 numeros zeros.. e por isso confunde qd vai marcar a 'O' ou o 'X'. nesse caso, preciso fazer um laço de repetição que vá de 0 a 9 que são as posições do array. e usar isso tanto pra mostrar x ou O quanto pra ver se o modulo de 2 é par ou impar..
+    //          }
+    //        }
+    //
+    //      
+    //          
+    //    
+    //        
+    //        
+    //        console.log(tablado);
+    //      }
+    //}
+    //
+    //jogoVelha()
+
+
+function jogoVelha() {
+
+  var tablado = [
+    new Array(3),
+    new Array(3),
+    new Array(3),
+  ]
+
+  var n = 1
+
+  for (let linha = 0; linha < tablado.length; linha++) {
+    for (let coluna = 0; coluna < tablado.length; coluna++) {
+      tablado[linha][coluna] = {
+        posicao: `(   ) (${n})`,
+        status: ""
+      }
+      n += 1
+    }
+  }
+  var num = 0
+
+  while (!(jogada == "q")) {
+    var diagonalPX = 0
+    var diagonalPO = 0
+
+    if (num % 2 == 0) {
+      var jogada = prompt(`quer jogar O em qual posição?
+    pressione (q) para sair`)
+
+    }
+
+    if (num % 2 == 1) {
+      var jogada = prompt(`quer jogar "X" em qual posição?
+    pressione (Q) para sair`)
+    }
+    var c
+    var l
+    var temO = 0
+
+    for (let linha = 0; linha < tablado.length; linha++) {
+      for (let coluna = 0; coluna < tablado.length; coluna++) {
+
+        if (tablado[linha][coluna].posicao.includes(jogada) && tablado[linha][coluna].status != "") {
+          //pq não funciona?
+          alert("esse lugar já está ocupado")
+          //break;
+        }
+
+        if (tablado[linha][coluna].posicao.includes(jogada)) {
+          l = linha
+          c = coluna
+          //return posicao
+
+
+          if (tablado[l][c].status == "" && jogada != "") {
+
+            if (num % 2 == 0) {
+
+              tablado[l][c].posicao = `("o") (${l}, ${c})`
+              tablado[l][c].status = `o`
+            }
+
+            if (num % 2 == 1) {
+              tablado[l][c].posicao = `("x") (${l}, ${c})`
+              tablado[l][c].status = `x`
+            }
+
+            num += 1
+
+            if (num == 9) {
+              alert("deu velha!")
+            }
+          }
+        }
+      }
+    }
+
+    if (parseInt(jogada) >= 10 || parseInt(jogada) <= 0) {
+      alert("essa não é uma jogada possível")
+      continue;
+    }
+
+    // pq não funciona?
+    // if (jogada === String) {
+    //   alert("digite um número?")
+    // }
+
+      // ## ganhadores
+
+      //ganha diagonal principal: teste 1 n 5 n 9
+    if (l == c) {
+      if (tablado[l][c].status == "x") {
+        diagonalPX += 1
+
+        if (diagonalPX == 3) {
+          alert("o X ganhou na diagonal principal!")
+          return;
+        }
+      }
+
+      if (tablado[l][c].status == "o") {
+        diagonalPO += 1
+
+        if (diagonalPO == 3) {
+          alert("a (O) ganhou na diagonal principal!")
+          return;
+        }
+      }
+    }
+
+
+    var temO = 0
+    var temX = 0
+    var temXC = 0
+    var temOC = 0
+
+   // # linha
+    for (let index = 0; index < tablado.length; index++) {
+      // se linha valer 0
+      if (l == 0) {
+        if (tablado[l][index].status == "o") {
+          temO += 1
+          if (temO == 3) {
+            alert(`a (O) ganhou na linha 0 ${c}!`)
+            return;
+          }
+        }
+
+        if (tablado[l][index].status == "x") {
+          temX += 1
+          if (temX == 3) {
+            alert(`o X ganhou na linha 0 ${c}!`)
+            return;
+          }
+        }
+      }
+
+      //          // se linha valer 1
+
+      if (l == 1) {
+        if (tablado[l][index].status == "o") {
+          temO += 1
+          if (temO == 3) {
+            alert(`a (O) ganhou na linha 1 ${c}!`)
+            return;
+          }
+        }
+
+        if (tablado[l][index].status == "x") {
+          temX += 1
+          if (temX == 3) {
+            alert(`o X ganhou na linha 1 ${c}!`)
+            return
+          }
+        }
+      }
+
+      //          // se linha valer 2
+
+      if (l == 2) {
+        if (tablado[l][index].status == "o") {
+          temO += 1
+          if (temO == 3) {
+            alert(`a (O) ganhou na linha 2 ${c}!`)
+            return
+          }
+        }
+
+        if (tablado[l][index].status == "x") {
+          temX += 1
+          if (temX == 3) {
+            alert(`o X ganhou na linha 2 ${c}!`)
+            return
+          }
+        }
+      }
+
+      // # coluna
+
+      // se coluna valer 0
+      if (c == 0) {
+        if (tablado[index][c].status == "o") {
+          temOC += 1
+
+          if (temOC == 3) {
+            alert(`a (O) ganhou na coluna 0 ${c}!`)
+            return
+          }
+        }
+
+        if (tablado[index][c].status == "x") {
+          temXC += 1
+
+          if (temXC == 3) {
+            alert(`o X ganhou na coluna 0 ${c}!`)
+            return
+          }
+        }
+      }
+
+      //          // se coluna valer 1
+
+      if (c == 1) {
+        if (tablado[index][c].status == "o") {
+          temOC += 1
+          if (temOC == 3) {
+            alert(`a (O) ganhou na coluna 1 ${c}!`)
+            return
+          }
+        }
+
+        if (tablado[index][c].status == "x") {
+          temXC += 1
+          if (temXC == 3) {
+            alert(`o X ganhou na coluna 1 ${c}!`)
+            return
+          }
+        }
+      }
+
+      //          // se coluna valer 2
+
+      if (c == 2) {
+        if (tablado[index][c].status == "o") {
+          temOC += 1
+          if (temOC == 3) {
+            alert(`a (O) ganhou na coluna 2 ${c}!`)
+            return
+          }
+        }
+
+        if (tablado[index][c].status == "x") {
+          temX += 1
+          if (temXC == 3) {
+            alert(`o X ganhou na coluna 2 ${c}!`)
+            return
+          }
+        }
+      }
+    }
+
+    // ganha diagonal secundária
+    var diagonalSecO = 0
+    var diagonalSecX = 0
+    var colunaDS = tablado.length - 1
+    for (let linhaDS = 0; linhaDS < tablado.length; linhaDS++) {
+
+      let itemArrayDS = tablado[linhaDS][colunaDS].status
+      if (itemArrayDS == "x") {
+        diagonalSecX += 1
+        if (diagonalSecX == 3) {
+          alert("o X ganhou na DS!")
+          return
+        }
+      }
+
+      if (itemArrayDS == "o") {
+        diagonalSecO += 1
+        if (diagonalSecO == 3) {
+          alert("a (O) ganhou na DS!")
+          return
+        }
+      }
+      colunaDS -= 1
+
+    }
+
+    console.log(tablado);
+  }
+
+  console.log(tablado);
+
+}
+
+jogoVelha()
+
+  </script>
+</body>
+
+</html>

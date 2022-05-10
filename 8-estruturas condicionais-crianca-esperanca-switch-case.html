@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>8-estruturas condicionais</title>
+</head>
+
+<body>
+  <script>
+
+      // aula 5 à aula 7
+//usei o visualg e o scrash
+
+
+
+    // aula 8: estruturas condicionais
+
+    //apto a tirar carteira de motorista
+
+    //var idade = prompt("diga qual é a sua idade")
+    //
+    //if(idade >= 18) {
+    //alert("você está apto a dirigir")
+    //} else {
+    //alert("você não pode dirigir")
+    //}
+
+
+    //refazendo usando função com passagem de parâmetro do tipo valor
+
+    //function tiraCarteira() {
+    //  var idade = prompt("qual a sua idade?")
+    //
+    //  if(idade >= 18) {
+    //  return "você está apto a dirigir"
+    //  } else {
+    //    return "você não pode dirigir"
+    //  }
+    //}
+    //
+    //var podeTirarCarteira = tiraCarteira()
+    //
+    //console.log(podeTirarCarteira);
+
+    // // aluno aprovado ou reprovado
+    //
+    //var nota1 = parseFloat(prompt("qual a primeira nota do aluno").replace(",", "."))
+    //var nota2 = parseFloat(prompt("qual a segunda nota?").replace(",", "."))
+    //
+    //var somaNota = (nota1 + nota2) / 2
+    //// aqui eu preciso atribuir à variável soma nota o to fixed.. já o replace e toString() não precisa atribuir
+    ////somaNota = somaNota
+    //
+    //// pra não interferir na conta feita pelo if, eu preciso atribir o tofixed e o replace em cada linha para que não dê interferência.ou atribuir o meu valor transformado em string apenas para o momento da exibição:
+    //var media = somaNota.toFixed(2).replace('.', ',')
+    //
+    //
+    //alert("a média do aluno é: " + media)
+    //
+    //
+    //
+    //if (somaNota >= 7) {
+    //alert("aluno aprovado com nota " + media)
+    // } else if (somaNota >= 5 && somaNota < 7) { // alert("aluno em recuperação com nota " + media)
+    //    } else {
+    //      alert(" aluno reprovado com nota " + media)
+    //}
+
+    //refazendo usando função com passagem de parâmetro do tipo valor
+
+
+    //function getInputNumber(texto) {
+    //  input = parseFloat(prompt(`${texto}`).replace(",", "."))
+    //  //var nota2 = parseFloat(prompt(`qual a 2ª nota do aluno`).replace(",","."))
+    //  return input
+    //}
+
+    //eu retorno o dado e coloco ele em uma variável fora do escopo. não precisa colocar dentro de variável dentro da função, só se necessário.. o mais importante para o return é colocar o dado dentro da variável quando vai usar ele fora da função.
+//    var nota1 = getInputNumber("qual é a 1ª  nota do aluno?")
+//    //var nota = parseFloat(prompt(`qual a ${n}ª nota do aluno`)
+//
+//    var nota2 = getInputNumber("qual é a segunda nota do aluno?")
+//
+//
+//    function somaNota(n1, n2) {
+//      var somaNota = (n1 + n2) / 2
+//      return somaNota
+//    }
+//
+//
+//    var somaNotaAluno = somaNota(nota1, nota2)
+//
+//    var media = somaNotaAluno.toFixed(2).replace(".", ",")
+//
+//    console.log(`a media do aluno é ${media}`);
+
+
+
+
+    ////IMC:
+
+    // o replace troca a virgula que o usuário digitar por '.' e p parseFloat tranforma isso em número real (pq eu troquei a virgula por ponto, se não trocar ele entende que são dois números diferente e faz a conta errado)
+    //var massa = parseFloat(prompt(" Informe seu peso em Kg (Ex.: 0,00): ").replace(',','.'))
+    //var altura = parseFloat(prompt(" informe sua altura em metros (Ex.: 1,00): ").replace(',', '.'))
+    //
+    // nesse momento, meus dados são do tipo number, graças ao parseFloat e posso fazer a contra tranquilamente.
+    //var IMC = massa / (altura ** 2)
+    //
+    // essa nova variável é só para exibição no modo padrão brasileiro com vírgula, e aqui aprovei para considerar apenas duas casas decimais com o toFixed(2) e quando faço isso meu dado se torna uma string e aí posso usar o replace pra trocar novamente o ponto pela virgula e deixar no padrão brasileiro.
+    //var imc = IMC.toFixed(2).replace(" .", "," ) 
+    //if (IMC < 17) { 
+    //   alert("seu IMC é: " + imc + " \n\nResultado: muitoabaixo do peso") 
+    //  } 
+    //   
+    //  if (IMC>= 17 && IMC <18.5) { 
+    //   alert("seu IMC é: " + imc + " \n\nResultado: abaixo do peso") 
+    //  } 
+    //   
+    //   if (IMC>= 18.5 && IMC < 25) { 
+    //     alert("seu IMC é: " + imc + " \n\nResultado: peso ideal") 
+    //     } 
+    //    
+    //     if (IMC>= 25 && IMC < 30) { 
+    //       alert("seu IMC é: " + imc + " \n\nResultado: sobrepeso") 
+    //       } 
+    //       
+    //       if (IMC>= 30 && IMC < 35) { 
+    //         alert("seu IMC é: " + imc + " \n\nResultado: obesidade") 
+    //         } 
+    //         
+    //        // if (IMC>= 35 && IMC < 40)
+    //        //{ 
+    //           alert("seu IMC é: " + imc + " \n\nResultado: obesidade severa") 
+    //           } 
+    //           
+    //           if (IMC>= 40) {
+    //           alert("seu IMC é: " + imc + "\n\nResultado: obesidade mórbida")
+    //           }
+
+    // refazendo com função e passagem de dados tipo valor
+
+////duvida 3:
+//    function getInputNumber(texto) {
+//      input = parseFloat(prompt(`${texto}`).replace(",", "."))
+//      return input
+//    }
+//
+//    var massa = getInputNumber("Informe seu peso em Kg (Ex.: 0,00")
+//    var altura = getInputNumber("Informe sua altura em metros (Ex.: 1,00):")
+//
+//    function calcIMC(mas, alt) {
+//      var IMC = mas / (alt ** 2)
+//      
+//    
+//// a função do calcimc() é me retornar o resultado em formato string. fora da função eu só recebo o dado retornado e exibo ele no console.
+//// isso implica em ter que mudar o ponto por vírgula e fixar em duas casas decimais aqui dentro do ${} pq é aqui que o dado ainda está sendo tratado como number. pq a função retorna uma string, então fora da função ele vai ser string e não vai dar mais pra fazer isso, a não ser ue eu retransforme pra number e depois organize.. talvez seja melhor pq é menos código. mas, não tem como retransformar a string toda pq tem letras e números, o único lugar onde eu consigo pegar só esse imc como number é aqui. então é melhor aqui mesmo que tenha muito codigo.
+//      if (IMC < 17) {
+//        return `seu IMC é: " + ${IMC.toFixed(2).replace(".", ",")} + " \n\nResultado: muito abaixo do peso`
+//      }
+//
+//      if (IMC >= 17 && IMC < 18.5) {
+//        return `seu IMC é: ${IMC.toFixed(2).replace(".", ",")} \n\nResultado: abaixo do peso`
+//      }
+//
+//      if (IMC >= 18.5 && IMC < 25) {
+//        return `seu IMC é: ${IMC.toFixed(2).replace(".", ",")} + " \n\nResultado: peso ideal`
+//      }
+//
+//      if (IMC >= 25 && IMC < 30) {
+//        return `seu IMC é: ${ IMC.toFixed(2).replace(".", ",")} \n\nResultado: sobrepeso`
+//      }
+//
+//      if (IMC >= 30 && IMC < 35) {
+//        return `seu IMC é: ${ IMC.toFixed(2).replace(".", ",")} \n\nResultado: obesidade`
+//      }
+//
+//      if (IMC>= 35 && IMC < 40) {
+//      return `seu IMC é: ${ IMC.toFixed(2).replace(".", ",")} \n\nResultado: obesidade severa`
+//      }
+//    
+//      if (IMC >= 40) {
+//        return `seu IMC é: ${ IMC.toFixed(2).replace(".", ",")} \n\nResultado: obesidade mórbida`
+//      }
+//
+//  
+//}
+//
+//    var imc = calcIMC(massa, altura)
+//    console.log(typeof imc);
+//    //var seuImc = imc.toFixed(2).replace(".", ",")
+//    console.log(`${imc}`);
+
+
+
+//          // exercicio 1 
+//          //var nota1 = parseFloat(prompt("qual foi a nota do aluno na primeira avaliação ?").replace(",", ".")) 
+//          //var nota2 = parseFloat(prompt("qual foi a nota do aluno na segunda avaliação ?").replace(",", ".")) 
+//          //var calNota = (nota1 + nota2) / 2 // //var media=calNota.toFixed(2).replace('.', ',' ) //console.log(media); //
+//              //if(calNota>= 9) {
+//              // alert(`A média do aluno é ${media} com o conceito A`)
+//              //} else if(8.9 >= calNota && calNota >= 8) {
+//              // alert(`A média do aluno é ${media} com o conceito B`)
+//              //} else if (7.9 >= calNota && calNota >= 7) {
+//              // alert(`A média do aluno é ${media} com o conceito C`)
+//              //} else if (6.9 >= calNota && calNota >= 6) {
+//              // alert(`A média do aluno é ${media} com o conceito D`)
+//              //} else if (5.9 >= calNota && calNota >= 5) {
+//              // alert(`A média do aluno é ${media} com o conceito E`)
+//              //} else {
+//              // alert(`A média do aluno é ${media} com o conceito F`)
+//              //}
+//
+    // refazendo com função e passagem de dados tipo valor
+
+//function getInputNumber(texto) {
+//  input = parseFloat(prompt(`${ texto }`).replace(",", "."))
+//  return input
+//}
+//
+//
+//var nota1 = getInputNumber("qual foi a nota do aluno na primeira avaliação ?") 
+//var nota2 = getInputNumber("qual foi a nota do aluno na segunda avaliação ?")
+//
+//function calcNota(n1, n2) {
+//  var calNota = (n1 + n2) / 2
+//  
+//  if(calNota>= 9) {
+//   return (`A média do aluno é ${calNota.toFixed(2).replace(".", ",")} com o conceito A`)
+//  } else if(8.9 >= calNota && calNota >= 8) {
+//   return (`A média do aluno é ${calNota.toFixed(2).replace(".", ",")} com o conceito B`)
+//  } else if (7.9 >= calNota && calNota >= 7) {
+//   return (`A média do aluno é ${calNota.toFixed(2).replace(".", ",")} com o conceito C`)
+//  } else if (6.9 >= calNota && calNota >= 6) {
+//   return (`A média do aluno é ${calNota.toFixed(2).replace(".", ",")} com o conceito D`)
+//  } else if (5.9 >= calNota && calNota >= 5) {
+//   return (`A média do aluno é ${calNota.toFixed(2).replace(".", ",")} com o conceito E`)
+//  } else {
+//   return (`A média do aluno é ${calNota.toFixed(2).replace(".", ",")} com o conceito F`)
+//  }
+//}
+//
+//var media = calcNota(nota1, nota2)
+//console.log(media);
+
+
+
+    // switch case: criança esperança!
+      
+    // exercico 2
+
+//var time1 = parseInt(prompt("quantos gols o time da casa fez? "))
+//var time2 = parseInt(prompt("quantos gols o time visitante fez?"))
+//
+//
+//var diferenca = (time1 - time2) * -1
+//
+//switch (diferenca) {
+//  case 1:
+//  alert("Diferença: " + diferenca + " pontos \n STATUS: Partida normal");
+//  break;
+//  case 2:
+//  alert("Diferença: " + diferenca + " pontos \n STATUS: Partida normal");
+//  break;
+//  case 3:
+//  alert("Diferença: " + diferenca + " pontos \n STATUS: Partida normal");
+//  break;
+//  case 4:
+//  alert("Diferença: " + diferenca + " pontos \n STATUS: Partida normal");
+//  break;
+//  case 0:
+//  alert("Diferença: " + diferenca + " pontos \n STATUS: Empate ");
+//  break;
+//  default:
+//  alert("Diferença: " + diferenca + " pontos \n STATUS: Goleada ");
+//}
+
+
+    // refazendo com função e passagem de dados tipo valor
+
+//function getInputNumber(texto) {
+//    input = parseInt(prompt(` ${texto} `))
+//    return input
+//}
+//
+//var time1 = getInputNumber("quantos gols o time da casa fez? ")
+//var time2 = getInputNumber("quantos gols o time visitante fez?")
+//
+//function calcPlacar(t1, t2) {
+//// corrigido o problema dele exibir como -1  e mostrar o resultado errado 
+//  var diferenca = t1 - t2
+//  
+//  if(t1 < t2) {
+//    diferenca = (t1 - t2) * -1
+//
+//  }
+//  
+//  switch (diferenca) {
+//    case 1:
+//      return("Diferença: " + diferenca + " pontos \n STATUS: Partida normal");
+//      break;
+//    case 2:
+//      return("Diferença: " + diferenca + " pontos \n STATUS: Partida normal");
+//      break;
+//    case 3:
+//      return("Diferença: " + diferenca + " pontos \n STATUS: Partida normal");
+//      break;
+//    case 4:
+//      return("Diferença: " + diferenca + " pontos \n STATUS: Partida normal");
+//      break;
+//    case 0:
+//      return("Diferença: " + diferenca + " pontos \n STATUS: Empate ");
+//      break;
+//    default:
+//      return("Diferença: " + diferenca + " pontos \n STATUS: Goleada ");
+//  }
+//}  
+//
+//var placar = calcPlacar(time1, time2)
+//console.log(placar);
+
+
+
+
+// status:
+// 5 ou mais pontos de diferença goleada
+
+// 0 de diferneça empate
+
+// 3 de diferença partida normal
+
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>13: passagem de parâmetro: - funções</title>
+</head>
+<body>
+  <script>
+
+// ## aula 13: passagem de parâmetro: - funções
+// - tipo 2: por REFERÊNCIA
+// no java script não é possível, a naõ ser que vc coloque dentro de um objeto
+//function soma(a, b) {
+//  a.x += 1
+//  b.y += 2
+//  var soma = a.x + b.y
+//  console.log(`a soma vale ${soma}`);
+//}
+//
+//// quando passa por referência vai tudo pra lá pra dentro da função, no caso: xis = {x: 4} e não só o valor (x: 4) e qualquer alteração feita dentro da função, vai alterar a variável original
+//
+//
+//var xis = {x: 4}
+//var yps = {y: 8}
+//
+//soma(xis, yps)
+//console.log(xis.x, yps.y);
+
+// sequencia de fibonacci passada por referência no javascript usando objetos --------------
+//function proxFibonacci(a, b) {
+//  novoValor = a.v1 + b.v2
+//  console.log(novoValor);
+//  
+//
+//  a.v1 = b.v2
+//  b.v2 = novoValor
+//
+//}
+//
+//var novoValor = 0
+//
+//  var v1 = {v1: 0}
+//  console.log(v1.v1);
+//  var v2 = {v2: 1}
+//  console.log(v2.v2);
+//
+//
+//  for (i = 3; i <= 10; i++) {
+//    proxFibonacci(v1, v2)
+//  }
+
+
+// aula 13: rotina parte 2 - Funções
+// as funções são procedimentos que podem retornar (ou não) resultados. e esse retorno de resultados nos permite tratar no código principal, o dado gerado naquela função e que fi retornado para o escopo global 
+
+//function soma(a, b) {
+//  var soma = a + b;
+//  return soma
+//}
+//
+//var n1 = 5
+//var n2 = 4
+//// quando retorno um valor, preciso guardar ele em uma variável declarada no escopo global pq ela não existe ainda aqui. vai existir a partir dessa variável
+//var res = soma(n1,n2)
+//// depois que a função soma é chamada, passando esses parâmetros, ela vai somar os valores dentro da função e retornar apenas o valor da soma, então a variável res vai receber o valor da soma e por isso podemos imprimir no console esse valor
+//console.log("a soma é: " + res);
+
+
+
+// somando dois valores 
+
+//function soma(x, y) {
+//  
+//  return (x + y)
+//}
+//
+//var v1 = parseInt(prompt("digite um valor "));
+//var v2 = parseInt(prompt("digite outro valor "));
+//var soma = soma(v1, v2)
+//console.log(`a soma entre ${v1} e ${v2} é: ${soma}`);
+
+
+//// verificar se o número é par ou ímpar
+
+//function parOuImpar(numero) {
+//  if(numero % 2 == 0) {
+//    return "par"
+//    // o estranho aqui é que não precisa de atribuição de variável pq?
+//    
+//  } else if(numero % 2 == 1) {
+//    return "ímpar"
+//    
+//  }
+//  //console.log(`${numero}`); // aqui numero aparece somado com 1
+//
+//  // aqui o return funciona mesmo se eu não colocar o resultado do if dentro de uma variável pra depois retornar ela. não sei se só funciona pq é console.log e alert ou se pode ser qualquer coisa. testei e vi que funciona com o código também, então a variável só precisa ser declarada fora do escopo da função para que o valor retornado pela função possa ser guardado fora do escopo   
+//  //return parOuImp
+//}
+//
+//    //console.log(`${numero}`); // aqui numero não foi definido ainda
+//
+//    
+//var numero = parseInt(prompt("digite um valor "));
+//
+//// lembrar de sempre definir fora do escopo da função uma variável pra receber o valor de retorno e declarar o essa variável com o valor que é a chamada pra função que eu quero usar e pegar o valor de retorno
+//var resultado = parOuImpar(numero)
+//
+//
+////console.log(resultado);
+////console.log(parOuImp);
+//
+//  console.log(`o número ${numero} é ${resultado}`);
+////console.log(`${numero}`); // aqui numero acabou de ser definido no input
+
+// fatorial e escopo
+
+//function Fatorial(num) {
+//  var resultado = 1
+//  for(let contador = 1; contador <= num; contador++) {
+//    resultado = resultado * contador
+//  }
+//  return resultado
+//}
+//
+//var numero = parseInt(prompt("digite um número"))
+//var fatorial = Fatorial(numero)
+//
+//console.log(`o valor de ${numero} fatorial é ${fatorial}`);
+
+
+// passagem de parâmetro que funciona por valor e por referência
+
+// funções que já vem pronta no javascript:
+
+let site = "CursoEmVideo" // vou usar essa variável pra todos os exemplos abaixo...
+
+
+  // # Array.from(suaString) (CONTAR CARACTERES DE UM ARRAY): transformar uma cadeia de caracteres(strings) em elementos de um array (e depois vc pode contar o tamanho desse array com array.length)
+
+  let contar = Array.from(site) // o Array.from(string) transforma a string em array
+  console.log(contar.length);
+
+  // nesse caso, cada caractere da frase virou uma posição de um array. agora esse array tem 12 posições pq o conteúdo da string tinham 12 letras/caracteres (pq ele considerou os espaços vazios também).
+
+// # slice() (pegar somente alguns elementos do array)
+  //sintaxe: .slice(posição de inicio do corte(posição do array), posição de final do corte, nesse caso conta o array a partir do 1 e não do zero, aí escolhe a posição que vc quer que ele pare) (cortar)
+   console.log(site.slice(5, 7)); // 5 é a posição do array e 7 é o 2º item desse array após o 6 que é de onde eu comecei, por isso ele pegou a partir da posição 5 do array e parou de cortar até o 2 item. por isso retornou "Em"
+  
+   // # toLowerCase() / toUpperCase() : transformando em letras maiúsculas e minúsculas
+     console.log(site.toLowerCase()); // letras minúsculas
+     console.log(site.toUpperCase()); // letras maiúsculas
+
+
+
+// # includes: vê se no string tem a palavra que eu tô querendo
+    // OBS: essa função é case sensitive, ou seja, tem que colocar a palavra exata considerando maiúsculas e minusculas, se nao não funciona...
+
+    console.log(site.includes("video", "Em")); //.includes verifica se a palavra que está entre parenteses contém no meu texto... posso verificar mais de uma palavra se separar por vírgula, mas se uma delas não tiver ele vai retornar o resultado inteiro como false
+
+    // como fazer pra achar em qual posição a palavra que eu busquei está?
+
+
+    // ver qual tecla foi pressionada no teclado
+
+    // analisador de nomes:
+
+    var nome = prompt("digite seu nome")
+
+    console.log(`o total de letras do seu nome é: ${Array.from(nome).length}`);
+
+    console.log(`seu nome em maiusculas é: ${nome.toUpperCase()}`);
+
+    console.log(`seu nome em minusculas é: ${nome.toLowerCase()}`);
+
+    console.log(`as duas primeiras letras do seu nome é: ${nome.slice(0, 2)}`);
+
+    console.log(`a ultima letra do seu nome é: ${nome.slice(nome.length - 1, nome.length)}`);
+
+  console.log(`No seu nome tem a letra E? ${nome.includes("e")}`);
+
+  // escrevendo de traz pra frente - invertendo a ordem do array
+
+  for(var c = nome.length; c >= 1; c--) {
+    console.log(`seu nome de trás pra frente é: ${nome.slice(c-1, c)}`);
+    // pq a resposta é c-1 até c? pq ele vai do anterior ao último até o último. e depois ele decrementa -1  vai continua fazendo isso por causa do for até percorrer todos até o último.
+  }
+
+
+
+
+
+  </script>
+</body>
+</html>

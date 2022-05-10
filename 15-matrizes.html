@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>algoritmo</title>
+</head>
+<body>
+  <script>
+//aulas algoritmos
+
+
+// aula 15: matrizes
+
+// variáveis compostas homogêneas multidimensionais, (ou matriz)
+// variáveis compostas de mais de uma dimensão
+//var m = [
+//  // criando uma matriz de 3 linhas e 3 colunas
+//  new Array(2), 
+//  new Array(2), 
+//  new Array(2)
+//]
+// o tamanho desse array é 3 pq tem 3 linhas
+//console.log(m)
+
+// a primeira dimensão é a linha e a outra é a coluna. pra criar essa tabela de 3 linhas e duas colunas eu declarei um array com dois espaços 3 vezes. (dimensão 3 x 2 = matriz de 3 linhas e 2 colunas)
+
+// adicionando valor na matriz. o primeiro [] é referente a linha, o segundo [] é referente a coluna. [linha][coluna]
+//m[0][1] = 4
+//m[1][1] = 5
+//m[2][0] = 8
+//
+//  console.log(m)
+
+
+  // preencher uma matriz 3x2 com os números do teclado
+
+//for(let linha = 0; linha < 3; linha++) {
+//  for(let coluna = 0; coluna < 2; coluna++) {
+//    var n = parseInt(prompt(`digite um número para a linha ${linha+1} na posição ${coluna+1}: `))
+//    m[linha][coluna] = n
+//    console.log(m)
+//  }
+//
+//}
+//
+//// mostrando os valores separadamente
+//for(linha = 0; linha < 3; linha ++) {
+//  for(coluna = 0; coluna < 2; coluna++) {
+//    console.log(m[linha][coluna]);
+//  }
+//  console.log(" ");
+//}
+//console.log(m);
+
+
+// ler uma matriz 3 x 3(matriz de 3ª ordem)  e mostrar quais valores são pares
+
+//let matriz = [
+//  new Array(3), 
+//  new Array(3), 
+//  new Array(3)
+//]
+//let par = 0
+//for(let linha = 0; linha <= 2; linha++) {
+//  for(let coluna = 0; coluna <= 2; coluna++) {
+//    var n = parseInt(prompt(`digite o valor para [${linha}, ${coluna}]`))
+//    matriz[linha][coluna] = n
+//
+//    if(n % 2 == 0) {
+//    matriz[linha][coluna] = "{" + n + "}"
+//
+//      par += 1
+//    }
+//  }
+//}
+//console.log(matriz);
+//console.log(`essa matriz contém ${par} números pares`);
+
+
+// criar uma matriz identidade de 3ª ordem
+//
+//[
+//  1, n , n,
+//  n, 1, n,
+//  n, n, 1
+//]
+// pra fazer a diagonal o número da posição pe repetido m[0][0] m[1][1] e m[2][2], então quando a linha for igual a coluna está na diagonal principal
+
+// depois mudamos pra matriz de 4ª ordem
+//mID = [
+//  new Array(4), 
+//  new Array(4), 
+//  new Array(4),
+//  new Array(4)
+//]
+//
+//for(let i = 0; i <= 3; i++) {
+//  for(let j = 0; j <= 3; j++) {
+//    if(i == j) {
+//      mID[i][j] = 1
+//    } else {
+//      mID[i][j] = 0
+//    }
+//  }
+//}
+//
+//  for (let i = 0; i <= 3; i++) {
+//    for (let j = 0; j <= 3; j++) {
+//      console.log(mID[i][j]);
+//      
+//    }
+//    console.log(mID);
+//    //console.log("\n");
+//
+//  }
+
+
+
+
+// preencher uma matriz de 4ª ordem
+
+var m = [
+  new Array(4),
+  new Array(4),
+  new Array(4),
+  new Array(4)
+]
+
+var somaDP = 0
+//// tem que começar com 1 pq é multiplicação
+var produto = 1
+
+  var media = 0
+  
+  var maiorDe3 = 0
+
+for(let linha = 0; linha <= 3; linha++) {
+  for(let coluna = 0; coluna <= 3; coluna ++) {
+    m[linha][coluna] = Math.floor(Math.random() *  10)
+
+    media += m[linha][coluna]
+    if(linha == coluna) {
+      somaDP += m[linha][coluna]
+    }
+
+    if(linha == 1) {
+      produto *= m[linha][coluna]
+    }
+
+    if(coluna == 2) {
+      if(maiorDe3 < m[linha][coluna]) {
+        maiorDe3 = m[linha][coluna]
+
+      }
+    }
+
+    
+  }
+}
+
+// forma que o prof fez o produto:
+
+//for(let coluna = 0; coluna <= 3; coluna ++) {
+  //  produto *= m[1][coluna]
+  //}
+  
+  var mediaMatriz = media / 16
+  
+  var valores4linha = 0
+  
+for(let coluna = 0; coluna <= 3; coluna++) {
+  if (m[3][coluna] > mediaMatriz) {
+    valores4linha += 1
+  }
+}
+
+console.log(m);
+// mostre a soma dos valores da diagonal principal
+console.log(`a soma da diagonal principal é: ${somaDP}`);
+// mostre o produto dos valores da segunda linha
+console.log(`o produto dos valores da segunda linha é: ${produto}`);
+// mostre o maior valor da 3ª coluna
+console.log(`O maior valor da 3ª coluna é: ${maiorDe3}`);
+
+// a média dos valores de toda a matriz
+console.log(`A média de todos os valores da matriz é: ${mediaMatriz}`);
+// qual dos valores da 4ª linha ultrapassam a média
+console.log(`Existem ${valores4linha} valores na 4ª linha que ultrapassam a média da matriz`);
+
+
+
+
+</script>
+</body>
+</html>

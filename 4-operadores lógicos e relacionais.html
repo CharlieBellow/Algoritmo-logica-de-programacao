@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>4-operadores lógicos e relacionais</title>
+</head>
+<body>
+  <script>
+    // aula 4: operadores lógicos e relacionais
+    //refazendo usando função com passagem de parâmetro do tipo valor
+
+var a = 2, b = 3, c = 5
+
+// c é igual a b elevado à a?
+  //console.log(c==b**a);
+
+function elevadoA(x,y,z) {
+  
+  if(z == y ** x) {
+    return "é"
+  } else {
+    return "não é"
+  }
+}
+
+var elevado = elevadoA(a, b, c)
+console.log(`${c} ${elevado} igual a ${b} elevado a ${c}`);
+
+  //console.log(b<=c%2);
+
+
+  // ## operadores lógicos:
+
+
+  //console.log(!(a==b)|| c > a);
+
+
+  function umOuOutro(x, y, z) {
+    if(x==y || z > x) {
+      return "verdadeiro"
+    } else {
+      return "falso"
+    }
+  }
+
+  var resultado = umOuOutro(a, b, c)
+  console.log(`${resultado}`);
+
+  /* ordem de execução de uma expressão aritmética:
+  
+  -------------------------------------------------------------
+  | Aritméticos |                    ()                       |
+  | Aritméticos |                     ^                       |
+  | Aritméticos |                    * /                      |
+  | Aritméticos |                    + -                      |
+  | Relacionais | == != > >= < <=  (da esquerda para direita) |
+  | Lógicos   |   &&                                          |
+  | Lógicos   |   ||                                          |
+  | Lógicos   |   !(não)                                      |
+  -------------------------------------------------------------
+  
+  */
+
+  //var l1, l2, l3, eq, es, tri
+
+  //l1 = prompt("escreva o lado1")
+  //l2 = prompt("escreva o lado2")
+  //l3 = prompt("escreva o lado3")
+  //eq = l1 == l2 && l2 == l3
+  //es = l1 != l2 && l2 != l3 && l1 != l3
+
+
+//tri = (l1 < l2 + l3) && (l2 < l1 + l3) && (l3 < l1 + l2)
+
+  //alert("pode ser um triangulo? " + tri);
+  //alert("o triangulo é equilátero? " + eq);
+  //alert("o triangulo é escaleno? " + es);
+
+
+    //refazendo usando função com passagem de parâmetro do tipo valor
+
+
+  var lado, eq, es, tri, l1, l2, l3
+function lado() {
+    var lado = parseInt(prompt(`escreva o lado`))
+    return lado
+  
+}
+
+l1 = lado()
+l2 = lado()
+l3 = lado()
+function triangulo() {
+
+  eq = l1 === l2 && l2 === l3
+  es = l1 !== l2 && l2 !== l3 && l1 !== l3
+  tri = (l1 < l2 + l3) && (l2 < l1 + l3) && (l3 < l1 + l2)
+  if(tri + eq) {
+    return "pode ser um triângulo equilátero"
+  } else if(tri + es) {
+    return "pode ser um triângulo escaleno"
+  } else {
+    return "não pode ser um triângulo"
+  }
+}
+
+var trianguloR = triangulo(l1, l2, l3)
+
+console.log(trianguloR);
+
+  // aula 5 à aula 7
+//usei o visualg e o scrash
+
+
+  </script>
+</body>
+</html>

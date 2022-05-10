@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>algoritmo</title>
+</head>
+
+<body>
+  <script>
+    //aulas algoritmos
+
+
+    // aula 9 - estruturas de repetição
+
+    // conte até 10 (while é o for simples)
+
+    //refazendo usando função com passagem de parâmetro do tipo valor
+
+    //function getInputNumber(texto) {
+    //  var input = parseInt(prompt(`${texto} `))
+    //  return input
+    //}
+    //
+    //function Contador(tipoContagem) {
+    //  if(tipoContagem == 1) {
+    //    var contador = 0
+    //    while (contador >= 10) {
+    //      console.log(contador);
+    //      contador = contador + 1
+    //      //return console.log(contador)
+    //      // como é um laço de repetição, eu não posso colocar o return, se não a função não vai ser executada. pois o return para a função.
+    //      
+    //    }
+    //  }
+    //
+    //  if(tipoContagem == 2) {
+    //    var contador = 10
+    //    
+    //    while (contador >= 0) {
+    //      console.log(contador);
+    //      contador = contador - 1
+    //      //return console.log(contador)
+    //    }
+    //
+    //  }
+    //
+    //}
+    //
+    //
+    //var tipo = getInputNumber("digite [1] para contar de 0 a 10 \n digite [2] para contar de 10 a 0 \n")
+    //
+    //Contador(tipo)
+    //
+
+
+
+    // contando números pares e ímpares
+    //  var num = 10
+    //  var contador = parseInt(prompt(`escolha:\n [1] para números ímpares \n [2] para números pares`))
+    //
+    //  if(contador === 1) {
+    //    while (num >= 0) {
+    //      console.log(num);
+    //      num = (num - 1) -2
+    //    }
+    //  } else if(contador === 2) {
+    //    while(num >= 0) {
+    //      console.log(num);
+    //      num = num - 2
+    //    }
+    //  } else {
+    //    alert("escolha 1 ou 2");
+    //    var contador = parseInt(prompt(`escolha:\n [1] para números ímpares \n [2] para números pares`))
+    //  }
+
+    //# escolhendo até quanto quer contar
+    //  var contador = 0
+    //  var valor = parseInt(prompt(`quer contar até quanto?`))
+    //  var salto = parseInt(prompt(`qual sera o valor do salto?`))
+    //  
+    //  while (contador <= valor) {
+    //    console.log(contador);
+    //    contador = contador + salto;
+    //}
+    //console.log("parei de contar");
+
+    // repetindo e somando: condicional dentro de estrutura de repetição
+    //var contador = 1
+    //var valor
+    //var soma = 0
+    //var maior = 0
+    //var menor = valor
+    //
+    //while(contador <= 3) {
+    //  valor = parseInt(prompt(`escreva o ${contador}º valor: `))
+    //  if(valor > maior) {
+    //    maior = valor
+    //  }
+    //  // achando o menor número digitado ----------------------------------
+    //  if (menor < valor) {
+    //    menor = valor
+    //  }
+    //
+    //  soma = soma + valor
+    //  contador = contador +1;
+    //}
+    //alert(`a soma de todos os valores foi: ${soma}, o maior número digitado foi ${maior} e o menor foi ${menor}`)
+
+
+
+    //refazendo usando função com passagem de parâmetro do tipo valor
+
+    //    function contar() {
+    //  
+    //  var contador = 1
+    //  var valor
+    //  var soma = 0
+    //  var maior = 0
+    //
+    //  while(contador <= 3) {
+    //    valor = parseInt(prompt(`escreva o ${contador}º valor: `))
+    //    if(valor > maior) {
+    //      maior = valor
+    //    } 
+    //    
+    //    // achando o menor número digitado ----------------------------------
+    //    if(!(valor > menor)) {
+    //      // se o valor nao for maior que o menor, ou seja se o valor for menor que o maior
+    //      var menor = valor
+    //    }
+    //  
+    //    soma = soma + valor
+    //    contador = contador +1;
+    //  }
+    //
+    //  return `a soma de todos os valores foi: ${soma}, o maior número digitado foi ${maior} e o menor foi ${menor}`
+    //
+    //}
+    //
+    //console.log(contar());
+
+
+
+
+    // conversão de moedas
+
+    //var Real
+    //var dolares
+
+    //var contador = 1
+    //var real = parseFloat(prompt(`qual é o valor em reais`))
+    //var quantidade = 2
+    //while(contador <= quantidade) {
+    //  var dolar = real / 2.20;
+    //  alert(`o valor convertido em dolares é:  ${dolar}`)
+    //  contador = contador + 1
+    //}
+
+    //refazendo usando função com passagem de parâmetro do tipo valor
+
+    //function ConverteMoedas(){
+    // 
+    //  var contador = 1
+    //  
+    //  var real = parseFloat(prompt(`qual é o valor em reais`))
+    //  var quantidade = 2
+    //  while(contador <= quantidade) {
+    //    var dolar = real / 2.20;
+    //    return `o valor convertido em dolares é:  ${dolar}`
+    //    contador = contador + 1
+    //  }
+    //
+    //}
+    //
+    //console.log(ConverteMoedas());
+
+
+
+
+
+
+    // explicando o laço de repetição
+    // o contador é de onde vai começar
+    //var contador = 0;
+    // o outro numero é onde vai parar
+    //var num = 10;
+
+    // se quiser incrementar (+) fica: contador(valendo 0) <= numero(valendo 10), se quiser decrementar (-) o contador, fica assim: contador (valendo 10) >= numero(valendo 0)
+    //while (contador <= num) {
+    //console.log(contador);
+    //contador = contador + 1;
+
+    //}
+
+    //console.log(contador);
+
+
+    // aula 10: estrutura de repetição 2
+    //# while
+    //var soma = 0
+
+    //var resposta = "s"
+
+    //while(resposta == "s") {
+    //  var num = parseInt(prompt(`digite o valor:`))
+    //  soma += num
+    //  resposta = prompt(`quer continuar? (s/n)`)
+    //  
+    //}
+    //alert(`a soma de todo os números é: ${soma}`)
+
+
+    //do {
+    //var num = parseInt(prompt(`digite o valor:`))
+    //soma += num
+    //resposta = prompt(`quer continuar? (s/n)`)
+    //} while(resposta == "s")
+
+    /*    Do /while
+    Executa uma instrução “até que” determinada condição seja falsa, a verificação é feita depois da execução;
+        Ex.: 
+        var a = 0;
+        do {
+          a++;
+          console.log(a);
+        } while (a < 10)
+    
+        como ler: a variável a vai receber mais um e imprimir no console até que seu valor chegue a 10
+    
+    */
+
+    // tabuada
+    //var cont = 1
+    //var n = 9
+    //do {
+    //  resultado = n * cont
+    //  console.log(`${n} x ${cont} = ${resultado}`);
+    //  cont+= 1
+    //
+    //} while(cont <= 10)
+
+
+    //refazendo usando função com passagem de parâmetro do tipo valor
+
+    //function tabuada(n) {
+    //  var cont = 1
+    //  do {
+    //  resultado = n * cont
+    //  console.log(`${n} x ${cont} = ${resultado}`);
+    //  cont+= 1
+    //
+    //  } while(cont <= 10)
+    //}
+    //console.log(tabuada(9));
+    //  console.log(tabuada(10));
+    //console.log(tabuada(23));
+    //  console.log(tabuada(0));
+    //console.log(tabuada(1));
+    //  console.log(tabuada(7));
+
+
+
+    // numeros negativos de
+
+    //var contador = 1
+    //var totalN = 0
+    //do {
+    //  var num = parseInt(prompt("digite um número: ")) 
+    //  if(num<0) {
+    //    //aqui ele soma mais um pq está contando quantos numero negativos foram digitados, e não somar os valores..
+    //    totalN +=1
+    //  }
+    //  contador+= 1
+    //} while (contador <= 5)
+    //alert(`foram digitados ${totalN} números negativos`)
+
+
+    // calculando o fatorial (contagem regressiva) de um numero
+
+    //do{
+    //  var nFat = parseInt(prompt("Digite o número do fatorial desejado:"))
+    //  var contad = nFat
+    //  var fat = 1
+    //  var resposta = "s"
+    //  do {
+    //  console.log(`${contad} X ${nFat}`);
+    //  fat *= contad
+    //  contad -= 1
+    //} while (contad >= 1)
+    //  console.log(`o valor do fatorial de ${nFat} é igual a: ${fat}`);
+    //  resposta = prompt("quer continuar? (s/n)")
+    //} while (resposta == "s")
+    // faça a repetição enquanto a resposta for sim
+
+    //refazendo usando função com passagem de parâmetro do tipo valor
+//    function getInputNumber(texto) {
+//      input = parseInt(prompt(` ${texto} `))
+//    }
+//
+//    function Fatorial(nFatorial) {
+//      
+//      contador = nFatorial
+//      fatorial = 1
+//      resposta = "s"
+//      
+//      do {
+//        console.log(`${contador} X ${nFatorial}`);
+//        fatorial *= contador
+//        contador -= 1
+//      } while (contador >= 1)
+//      
+//      console.log(`o valor do fatorial de ${nFatorial} é igual a: ${fatorial}`);
+//      
+////      do {
+////        resposta = prompt("quer continuar? (s/n)")
+////
+////      } while (resposta == "s")
+//    }
+//console.log(Fatorial(5));
+//  console.log(Fatorial(7));
+
+
+
+// verificar se o número é primo (divisivel por 1 e por ele mesmo)
+
+//var contador = 1
+//var numero = parseInt(prompt("digite um número"))
+//var contDiv = 0
+//do {
+//  if (numero % contador == 0) {
+//    contDiv += 1
+//  }
+//  //console.log(contador);
+//  contador += 1
+//} while (contador <= numero)
+////console.log("no total existem " + contDiv + " valores divisíveis");
+//
+//if (contDiv == 2) {
+//  console.log(`o número ${numero} é primo`);
+//} else {
+//  console.log(`o número ${numero} não é primo`);
+//}
+
+
+// aula 11 - estrutura de repetição 3
+
+// for: (para)
+
+// contando de 1 até 10
+
+//for(let i = 1; i <= 10; i++) {
+//  console.log(i);
+//}
+
+  // contando de 10 até 1
+//
+//  for (let i = 10; i >= 1; i--) {
+//    console.log(i);
+//  }
+
+  // onde não dá pra usar: quando não se sabe quando a repetição vai acabar, Ex.: se não tem certeza de quando o usuários vai parar de inserir dados, o para não pode ser utilizado
+
+
+//let s = 0
+//
+//  for(let c = 1; c <= 5; c++) {
+//    let n = parseInt(prompt("digite um valor"))
+//    s += n
+//    prompt("quer continuar? (s/n)")
+//  }
+//  alert(`a soma dos valores digitados é: ${s}`)
+
+
+  // numeros pares
+
+//var v = parseInt(prompt("digite um valor: "))
+
+//for (let i = 0; i <= v; i += 2) {
+//  console.log(i);
+//}
+
+// contagem regressiva de números pares
+
+//  var v = parseInt(prompt("digite um valor: "))
+//if(v%2==1) {
+//  v = v - 1
+//}
+//for (let i = v; i >= 0; i-=2) {
+//  console.log(i);
+//}
+
+// quantos valores estão entre 0 e 10?
+//var tot010 = 0
+//var sImp = 0
+//for(let i = 1; i <= 6; i++){
+//  var v = parseInt(prompt("digite um valor: "))
+//  console.log(v);
+//  // exibindo a soma entre os números ímpares
+//  if(v <= 10 && v >= 0) {
+//    tot010 += 1
+//    if(v%2 ==1) {
+//      sImp += v
+//    }
+//  }
+//}
+//
+//console.log("ao todo foram " + tot010 + " valores entre 0 e 10");
+//
+//console.log("a soma dos números ímpares digitados é " + sImp);
+
+// combinações de 3 valores agrupados 2 a 2:
+
+//for (var c1 = 1; c1 <= 3; c1++) {
+//  for (var c2 = 1; c2 <= 3; c2++) {
+//    // colocando um for dentro do outro ele agrupa esses números
+//    console.log(c1, c2);
+//
+//  }
+//}
+
+
+
+
+
+
+
+  </script>
+</body>
+
+</html>

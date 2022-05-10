@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>14-vetores - Arrays e Objetos
+  </title>
+</head>
+<body>
+  <script>
+    // aula 14 - Vetores - Arrays e Objetos
+
+// ### variáveis compostas : Arrays e Objetos 'no Js
+
+// ## variáveis compostas homogêneas: homogêneas pq os dados são do mesmo tipo. Ex.: array de números
+
+// ## variáveis compostas homogêneas unidimensionais: homogêneas pq os dados são do mesmo tipo. Ex.: array de números. e unidimensionais pq para acessar o índice do array eu só preciso usar um tipo de endereço, no caso do array array[i]. 
+// ex.:
+//let array = new Array(4);
+
+  //array[0] = 3
+  //array[1] = 5
+  //array[2] = 1
+  //array[3] = 0
+
+
+//let n = new Array(4) // criando array com 10 posições vazias
+//
+//  console.log(n);
+//
+//n[0] = 3
+//n[1] = 5
+//n[2] = 1
+//n[3] = 0
+//
+//console.log(n);
+
+// ler 7 valores e mostrar quantos deles são pares
+
+//let array = new Array(7);
+//  var totalPar = 0
+//  
+//  for (var i = 0; i <= array.length; i++) {
+//    var num = parseInt(prompt(`digite o ${i}º valor: `))
+//    array[1] = num
+//    
+//    if ((num % 2) == 0) {
+//      totalPar = totalPar + 1
+//      console.log(`valor par na posição ${i}`)}
+//  }
+//    
+//  
+//    console.log(`existem ${totalPar} numeros pares`);
+
+// listagem da turma
+
+//var nome = new Array(4)
+//var n1 = new Array(4)
+//var n2 = new Array(4)
+//var media = new Array(4)
+//var somaMedia
+//var alunoAcimaMedia
+//  var mediaTurma
+//  
+//// quais alunos estão acima da média?
+//for(let i = 0; i < nome.length; i++) {
+//  nome[i] = prompt(`aluno ${i + 1}`)
+//  n1[i] = parseInt(prompt(`primeira nota`))
+//  n2[i] = parseInt(prompt(`segunda nota`))
+//  media[i] = (n1[i] + n2[i]) / 2
+//  somaMedia += media[i]
+//}
+//  mediaTurma = somaMedia / 4
+//
+//console.log(`Listagem de alunos`);
+//for(let index = 0; index < nome.length; index++) {
+//  console.log(`${nome[index]}:  ${media[index]}`);
+//  if(media[index] > mediaTurma) {
+//    alunoAcimaMedia += 1
+//  }
+//}
+//
+//console.log(`ao todo temos ${alunoAcimaMedia} alunos acima da média da turma que é ${mediaTurma}`);
+
+
+// só importa quem começa com C
+//
+//var nome
+//var soC = new Array(10)
+//var totPessoasC = 0
+//
+//for(let i = 1; i <= 10; i++) {
+//  nome = prompt(`Digite um nome: `)
+//
+//  if(nome.toUpperCase().slice(0, 1) == 'C') {
+//    //console.log("é sim");
+//    totPessoasC += 1
+//    soC[totPessoasC] = nome
+//  }
+//}
+//
+//console.log("listagem final:");
+//
+//for(i = 1; i <= totPessoasC; i++) {
+//  // o for só vai até o total de pessoas pq só vai entrar os que começam com C
+//  console.log(soC[i]);
+//}
+
+
+// ordenar vetores (arrays)
+
+//var vet = new Array(10);
+//var aux
+//
+//for(let i = 0; i <= 9; i++) {
+//  vet[i] = parseInt(prompt("digite um valor:"))
+//}
+//
+//for(i = 0; i <= 8; i++) {
+//  for(let j = i+1; j <= 9; j++) {
+//    if(vet[i] > vet[j]) {
+//      aux = vet[i]
+//      vet[i] = vet[j]
+//      vet[j] = aux
+//    }
+//  }
+//}
+//
+//for(i = 0; i <= 9; i++) {
+//  console.log("( " + vet[i] +" )");
+//}
+
+
+
+  </script>
+</body>
+</html>
