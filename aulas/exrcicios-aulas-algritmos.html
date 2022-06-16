@@ -6,15 +6,17 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>exercícios</title>
+  <!--<script src="./jogodavelha2.js"></script>-->
 </head>
 
 <body>
+
   <script>
     // Exercícios de Algoritmos
     // 1) Escreva um programa que mostre na tela a mensagem "Olá, Mundo!"
     //alert("olá mundo!")
 
-    //2) Faça um programa que leia o nome de uma pessoa e mostre uma mensagem de boasvindas para ela:
+    //2) Faça um programa que leia o nome de uma pessoa e mostre uma mensagem de boas vindas para ela:
     //Ex:
     //Qual é o seu nome ? João da Silva
     //Olá João da Silva, é um prazer te conhecer!
@@ -708,281 +710,398 @@
     //jogoVelha()
 
 
-function jogoVelha() {
+    function jogoVelha() {
 
-  var tablado = [
-    new Array(3),
-    new Array(3),
-    new Array(3),
-  ]
+      var tablado = [
+        new Array(3),
+        new Array(3),
+        new Array(3),
+      ]
 
-  var n = 1
+      var n = 1
 
-  for (let linha = 0; linha < tablado.length; linha++) {
-    for (let coluna = 0; coluna < tablado.length; coluna++) {
-      tablado[linha][coluna] = {
-        posicao: `(   ) (${n})`,
-        status: ""
+      for (let linha = 0; linha < tablado.length; linha++) {
+        for (let coluna = 0; coluna < tablado.length; coluna++) {
+          tablado[linha][coluna] = {
+            posicao: `(  ) (${n})`,
+            status: ""
+          }
+          n += 1
+        }
       }
-      n += 1
-    }
-  }
-  var num = 0
+      var num = 0
 
-  while (!(jogada == "q")) {
-    var diagonalPX = 0
-    var diagonalPO = 0
+      while (!(jogada == "q")) {
+        var diagonalPX = 0
+        var diagonalPO = 0
 
-    if (num % 2 == 0) {
-      var jogada = prompt(`quer jogar O em qual posição?
+        if (num % 2 == 0) {
+          var jogada = prompt(`quer jogar O em qual posição?
     pressione (q) para sair`)
 
-    }
+        }
 
-    if (num % 2 == 1) {
-      var jogada = prompt(`quer jogar "X" em qual posição?
+        if (num % 2 == 1) {
+          var jogada = prompt(`quer jogar "X" em qual posição?
     pressione (Q) para sair`)
-    }
-    var c
-    var l
-    var temO = 0
-
-    for (let linha = 0; linha < tablado.length; linha++) {
-      for (let coluna = 0; coluna < tablado.length; coluna++) {
-
-        if (tablado[linha][coluna].posicao.includes(jogada) && tablado[linha][coluna].status != "") {
-          //pq não funciona?
-          alert("esse lugar já está ocupado")
-          //break;
         }
+        var c
+        var l
+        var temO = 0
 
-        if (tablado[linha][coluna].posicao.includes(jogada)) {
-          l = linha
-          c = coluna
-          //return posicao
+        for (let linha = 0; linha < tablado.length; linha++) {
+          for (let coluna = 0; coluna < tablado.length; coluna++) {
 
-
-          if (tablado[l][c].status == "" && jogada != "") {
-
-            if (num % 2 == 0) {
-
-              tablado[l][c].posicao = `("o") (${l}, ${c})`
-              tablado[l][c].status = `o`
+            if (tablado[linha][coluna].posicao.includes(jogada) && tablado[linha][coluna].status != "") {
+              //pq não funciona?
+              alert("esse lugar já está ocupado")
+              //break;
             }
 
-            if (num % 2 == 1) {
-              tablado[l][c].posicao = `("x") (${l}, ${c})`
-              tablado[l][c].status = `x`
+            if (tablado[linha][coluna].posicao.includes(jogada)) {
+              l = linha
+              c = coluna
+              //return posicao
+
+
+              if (tablado[l][c].status == "" && jogada != "") {
+
+                if (num % 2 == 0) {
+
+                  tablado[l][c].posicao = `("o") (${l}, ${c})`
+                  tablado[l][c].status = `o`
+                }
+
+                if (num % 2 == 1) {
+                  tablado[l][c].posicao = `("x") (${l}, ${c})`
+                  tablado[l][c].status = `x`
+                }
+
+                num += 1
+
+                if (num == 9) {
+                  alert("deu velha!")
+                }
+              }
+            }
+          }
+        }
+
+        if (parseInt(jogada) >= 10 || parseInt(jogada) <= 0) {
+          alert("essa não é uma jogada possível")
+          continue;
+        }
+
+        // pq não funciona?
+        // if (jogada === String) {
+        //   alert("digite um número?")
+        // }
+
+        // ## ganhadores
+
+        //ganha diagonal principal: teste 1 n 5 n 9
+        if (l == c) {
+          if (tablado[l][c].status == "x") {
+            diagonalPX += 1
+
+            if (diagonalPX == 3) {
+              alert("o X ganhou na diagonal principal!")
+              return;
+            }
+          }
+
+          if (tablado[l][c].status == "o") {
+            diagonalPO += 1
+
+            if (diagonalPO == 3) {
+              alert("a (O) ganhou na diagonal principal!")
+              return;
+            }
+          }
+        }
+
+
+        var temO = 0
+        var temX = 0
+        var temXC = 0
+        var temOC = 0
+
+        // # linha
+        for (let index = 0; index < tablado.length; index++) {
+          // se linha valer 0
+          if (l == 0) {
+            if (tablado[l][index].status == "o") {
+              temO += 1
+              if (temO == 3) {
+                alert(`a (O) ganhou na linha 0 ${c}!`)
+                return;
+              }
             }
 
-            num += 1
+            if (tablado[l][index].status == "x") {
+              temX += 1
+              if (temX == 3) {
+                alert(`o X ganhou na linha 0 ${c}!`)
+                return;
+              }
+            }
+          }
 
-            if (num == 9) {
-              alert("deu velha!")
+          //          // se linha valer 1
+
+          if (l == 1) {
+            if (tablado[l][index].status == "o") {
+              temO += 1
+              if (temO == 3) {
+                alert(`a (O) ganhou na linha 1 ${c}!`)
+                return;
+              }
+            }
+
+            if (tablado[l][index].status == "x") {
+              temX += 1
+              if (temX == 3) {
+                alert(`o X ganhou na linha 1 ${c}!`)
+                return
+              }
+            }
+          }
+
+          //          // se linha valer 2
+
+          if (l == 2) {
+            if (tablado[l][index].status == "o") {
+              temO += 1
+              if (temO == 3) {
+                alert(`a (O) ganhou na linha 2 ${c}!`)
+                return
+              }
+            }
+
+            if (tablado[l][index].status == "x") {
+              temX += 1
+              if (temX == 3) {
+                alert(`o X ganhou na linha 2 ${c}!`)
+                return
+              }
+            }
+          }
+
+          // # coluna
+
+          // se coluna valer 0
+          if (c == 0) {
+            if (tablado[index][c].status == "o") {
+              temOC += 1
+
+              if (temOC == 3) {
+                alert(`a (O) ganhou na coluna 0 ${c}!`)
+                return
+              }
+            }
+
+            if (tablado[index][c].status == "x") {
+              temXC += 1
+
+              if (temXC == 3) {
+                alert(`o X ganhou na coluna 0 ${c}!`)
+                return
+              }
+            }
+          }
+
+          //          // se coluna valer 1
+
+          if (c == 1) {
+            if (tablado[index][c].status == "o") {
+              temOC += 1
+              if (temOC == 3) {
+                alert(`a (O) ganhou na coluna 1 ${c}!`)
+                return
+              }
+            }
+
+            if (tablado[index][c].status == "x") {
+              temXC += 1
+              if (temXC == 3) {
+                alert(`o X ganhou na coluna 1 ${c}!`)
+                return
+              }
+            }
+          }
+
+          //          // se coluna valer 2
+
+          if (c == 2) {
+            if (tablado[index][c].status == "o") {
+              temOC += 1
+              if (temOC == 3) {
+                alert(`a (O) ganhou na coluna 2 ${c}!`)
+                return
+              }
+            }
+
+            if (tablado[index][c].status == "x") {
+              temX += 1
+              if (temXC == 3) {
+                alert(`o X ganhou na coluna 2 ${c}!`)
+                return
+              }
             }
           }
         }
+
+        // ganha diagonal secundária
+        var diagonalSecO = 0
+        var diagonalSecX = 0
+        var colunaDS = tablado.length - 1
+        for (let linhaDS = 0; linhaDS < tablado.length; linhaDS++) {
+
+          let itemArrayDS = tablado[linhaDS][colunaDS].status
+          if (itemArrayDS == "x") {
+            diagonalSecX += 1
+            if (diagonalSecX == 3) {
+              alert("o X ganhou na DS!")
+              return
+            }
+          }
+
+          if (itemArrayDS == "o") {
+            diagonalSecO += 1
+            if (diagonalSecO == 3) {
+              alert("a (O) ganhou na DS!")
+              return
+            }
+          }
+          colunaDS -= 1
+
+        }
+
+        console.log(tablado);
       }
+
+      console.log(tablado);
+
     }
 
-    if (parseInt(jogada) >= 10 || parseInt(jogada) <= 0) {
-      alert("essa não é uma jogada possível")
-      continue;
-    }
+    //jogoVelha() =================================================================
 
-    // pq não funciona?
-    // if (jogada === String) {
-    //   alert("digite um número?")
-    // }
+    // Funções
 
-      // ## ganhadores
+    // Gustavo: essa foi a segunda tentativa de reescrever o jogo da velha com a lógica que a gente criou em aula
 
-      //ganha diagonal principal: teste 1 n 5 n 9
-    if (l == c) {
-      if (tablado[l][c].status == "x") {
-        diagonalPX += 1
-
-        if (diagonalPX == 3) {
-          alert("o X ganhou na diagonal principal!")
-          return;
+    function jogoDaVelha2() {
+      var matriz = [new Array(3), new Array(3), new Array(3)]
+      var n = 1
+      for (let linha = 0; linha < matriz.length; linha++) {
+        for (let coluna = 0; coluna < matriz.length; coluna++) {
+          matriz[linha][coluna] = ""
+          n += 1
         }
       }
+      console.log("aqui:" + matriz[0][0]);
+      var posicao = 1
+      var posicaoMatriz
+      var linha
+      var coluna
+      var numeroJogada = 0
+      while (true) {
+        var check = false
+        var jogada
+        while (check == false) {
+          function lerEntradaUsuario() {
+            if (numeroJogada % 2 == 0) {
+              jogada = parseInt(prompt(`quer jogar O em qual posição?`))
+              return jogada
+            }
 
-      if (tablado[l][c].status == "o") {
-        diagonalPO += 1
+            if (numeroJogada % 2 == 1) {
+              jogada = parseInt(prompt(`quer jogar "X" em qual posição?`))
+              return jogada
+            }
 
-        if (diagonalPO == 3) {
-          alert("a (O) ganhou na diagonal principal!")
-          return;
+            if(jogada == q) {
+              return;
+            }
+          }
+
+          jogada = lerEntradaUsuario()
+
+          function validarEntrada(jogada) {
+            if (jogada != "" && jogada < 10 && jogada > 0) {
+              return true
+            } else {
+              return false
+            }
+          }
+
+          check = validarEntrada(jogada)
         }
-      }
-    }
+      
+        var l
+        var c
+        function achaPosicaoJogada(jogada, matriz) {
+          for (linha = 0; linha < matriz.length; linha++) {
+            for (coluna = 0; coluna < matriz.length; coluna++) {
+              if (jogada == posicao) {
+                l = linha
+                c = coluna
+                posicaoMatriz = [l, c]
+                return posicaoMatriz
+              }
+              posicao += 1
+            }
+          }
 
+        }
 
-    var temO = 0
-    var temX = 0
-    var temXC = 0
-    var temOC = 0
+        var lugarMatriz = achaPosicaoJogada(jogada, matriz)
 
-   // # linha
-    for (let index = 0; index < tablado.length; index++) {
-      // se linha valer 0
-      if (l == 0) {
-        if (tablado[l][index].status == "o") {
-          temO += 1
-          if (temO == 3) {
-            alert(`a (O) ganhou na linha 0 ${c}!`)
-            return;
+        function veSeTaVazio(lugarMatriz, matriz) {
+          if (matriz[lugarMatriz[0]][lugarMatriz[1]] == "") {
+            return true
+          } else {
+            //alert("lugar ocupado")
+            return false
           }
         }
 
-        if (tablado[l][index].status == "x") {
-          temX += 1
-          if (temX == 3) {
-            alert(`o X ganhou na linha 0 ${c}!`)
-            return;
+        var taVazio = veSeTaVazio(lugarMatriz, matriz)
+
+        var deQuemEaVez
+        if (taVazio == true) {
+
+          function quemTaJogando(numeroJogada) {
+            if (numeroJogada % 2 == 0) {
+              return 'o'
+            }
+
+            if (numeroJogada % 2 == 1) {
+              return 'x'
+            }
           }
-        }
-      }
+          deQuemEaVez = quemTaJogando(numeroJogada)
 
-      //          // se linha valer 1
-
-      if (l == 1) {
-        if (tablado[l][index].status == "o") {
-          temO += 1
-          if (temO == 3) {
-            alert(`a (O) ganhou na linha 1 ${c}!`)
-            return;
+          function colocaJogadaDeQuemForAVez(deQuemEaVez, lugarMatriz, matriz) {
+            matriz[lugarMatriz[0]][lugarMatriz[1]] = deQuemEaVez
+            
+            return matriz[lugarMatriz[0]][lugarMatriz[1]]
           }
-        }
-
-        if (tablado[l][index].status == "x") {
-          temX += 1
-          if (temX == 3) {
-            alert(`o X ganhou na linha 1 ${c}!`)
-            return
-          }
-        }
-      }
-
-      //          // se linha valer 2
-
-      if (l == 2) {
-        if (tablado[l][index].status == "o") {
-          temO += 1
-          if (temO == 3) {
-            alert(`a (O) ganhou na linha 2 ${c}!`)
-            return
-          }
-        }
-
-        if (tablado[l][index].status == "x") {
-          temX += 1
-          if (temX == 3) {
-            alert(`o X ganhou na linha 2 ${c}!`)
-            return
-          }
-        }
-      }
-
-      // # coluna
-
-      // se coluna valer 0
-      if (c == 0) {
-        if (tablado[index][c].status == "o") {
-          temOC += 1
-
-          if (temOC == 3) {
-            alert(`a (O) ganhou na coluna 0 ${c}!`)
-            return
-          }
-        }
-
-        if (tablado[index][c].status == "x") {
-          temXC += 1
-
-          if (temXC == 3) {
-            alert(`o X ganhou na coluna 0 ${c}!`)
-            return
-          }
-        }
-      }
-
-      //          // se coluna valer 1
-
-      if (c == 1) {
-        if (tablado[index][c].status == "o") {
-          temOC += 1
-          if (temOC == 3) {
-            alert(`a (O) ganhou na coluna 1 ${c}!`)
-            return
-          }
-        }
-
-        if (tablado[index][c].status == "x") {
-          temXC += 1
-          if (temXC == 3) {
-            alert(`o X ganhou na coluna 1 ${c}!`)
-            return
-          }
-        }
-      }
-
-      //          // se coluna valer 2
-
-      if (c == 2) {
-        if (tablado[index][c].status == "o") {
-          temOC += 1
-          if (temOC == 3) {
-            alert(`a (O) ganhou na coluna 2 ${c}!`)
-            return
-          }
-        }
-
-        if (tablado[index][c].status == "x") {
-          temX += 1
-          if (temXC == 3) {
-            alert(`o X ganhou na coluna 2 ${c}!`)
-            return
-          }
+          
+          colocaJogadaDeQuemForAVez(deQuemEaVez, lugarMatriz, matriz)
+    
+          numeroJogada += 1
+          
+        } else {
+          alert("lugar ocupado, tente novamente")
+          //voltar para a jogada
         }
       }
     }
 
-    // ganha diagonal secundária
-    var diagonalSecO = 0
-    var diagonalSecX = 0
-    var colunaDS = tablado.length - 1
-    for (let linhaDS = 0; linhaDS < tablado.length; linhaDS++) {
+    jogoDaVelha2()
 
-      let itemArrayDS = tablado[linhaDS][colunaDS].status
-      if (itemArrayDS == "x") {
-        diagonalSecX += 1
-        if (diagonalSecX == 3) {
-          alert("o X ganhou na DS!")
-          return
-        }
-      }
 
-      if (itemArrayDS == "o") {
-        diagonalSecO += 1
-        if (diagonalSecO == 3) {
-          alert("a (O) ganhou na DS!")
-          return
-        }
-      }
-      colunaDS -= 1
-
-    }
-
-    console.log(tablado);
-  }
-
-  console.log(tablado);
-
-}
-
-jogoVelha()
 
   </script>
 </body>
