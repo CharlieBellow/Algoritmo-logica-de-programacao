@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Pega input do usuário</h1>
+
+  <input type="text" id="entadaDeDado">
+  <input type="submit" id="botao" value="Enviar" onclick="pegaValueInput()">
+  <p id="saidaDeDado"></p>
+
+
+  <script>
+
+//qual a diferença entre usar o onclick="funcao()" no HTML e o addEventListener() no JS? Pq que só no js funcionou?
+
+//    var pegaValorDoInput = "";
+//
+//    function pegaValueInput() {
+//      pegaValorDoInput = document.getElementById("entradaDeDado").value;
+
+//      document.getElementById('saidaDeDado').innerHTML = pegaValorDoInput
+//    }
+
+  var botaoEnviar = document.querySelector("#botao");
+
+  botaoEnviar.addEventListener("click", function (event) {
+    // esse event é um objeto da biblioteca JS?
+    mostraValueInput();
+  })
+
+  function mostraValueInput() {
+    event.preventDefault();
+
+    var dadoDigitado = document.querySelector("#entadaDeDado").value;
+
+    document.getElementById('saidaDeDado').innerHTML = dadoDigitado
+  }
+
+  </script>
+
+</body>
+</html>
