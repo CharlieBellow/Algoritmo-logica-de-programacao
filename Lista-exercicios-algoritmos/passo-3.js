@@ -126,17 +126,17 @@ function calcSalario() {
 
   if (anosDeEmpresa <= 3) {
     aumento = 3
-    acrescimo = salario * (3 / 100)
+    acrescimo = salario * (aumento / 100)
     novoSalario = salario + acrescimo
   
   } else if (3 <= anosDeEmpresa && anosDeEmpresa <= 10) {
     aumento = 12.5
-    acrescimo = salario * (12.5 / 100)
+    acrescimo = salario * (aumento / 100)
     novoSalario = salario + acrescimo 
   
   } else if (anosDeEmpresa > 10) {
     aumento = 20
-    acrescimo = salario * (20 / 100)
+    acrescimo = salario * (aumento / 100)
     novoSalario = salario + acrescimo
   }
   
@@ -324,6 +324,28 @@ indivíduo dentro de certas faixas.
 Obs: O IMC é calculado pela expressão peso/altura² (peso dividido pelo quadrado
 da altura)*/
 
+function imc() {
+  var altura = parseFloat(prompt('Qual é a sua altura? (em metros)').replace(',', '.'));
+  var peso = parseFloat(prompt("Qual é o seu peso? (em Kilos)").replace(',', '.'));
+
+  var imc = peso / (altura ** 2)
+  var resultado
+
+  if (imc < 18.5) {
+    resultado = 'abaixo do peso'
+  } else if (18.5 <= imc && imc < 25) {
+    resultado = 'peso ideal'
+  } else if (25 <= imc && imc < 30) {
+    resultado = 'Sobrepeso'
+  } else if (30 <= imc && imc < 40) {
+    resultado = 'Obesidade'
+  } else if (imc > 40) {
+    resultado = 'Obesidade Mórbida' 
+  }
+    alert(`seu imc é ${imc.toString().replace(".", ",")}. Resultado: ${resultado}`); 
+  
+}
+//imc()
 
 /*35) Uma empresa de aluguel de carros precisa cobrar pelos seus serviços. O
 aluguel de um carro custa R$90 por dia para carro popular e R$150 por dia para
@@ -334,10 +356,44 @@ tabela a seguir:
 - Carros populares (aluguel de R$90 por dia)
 - Até 100Km percorridos: R$0,20 por Km
 - Acima de 100Km percorridos: R$0,10 por Km
+
 - Carros de luxo (aluguel de R$150 por dia)
 - Até 200Km percorridos: R$0,30 por Km
   - Acima de 200Km percorridos: R$0, 25 por Km*/
 
+function alugaCarro() {
+  var tipoCarro = parseInt(prompt(`qual carro você quer alugar? 
+  [1] popular,
+  [2] luxo`))
+  var diasAlugados = parseInt(prompt('por quantos dias você quer alugar?'))
+  var kmPercorridos = parseFloat(prompt('quantos Km serão percorridos?').replace(',', '.'))
+  var tipo = ''
+  var totalAPagar
+  
+  if (tipoCarro == 1) {
+    tipo = 'popular'
+    valorTipo = diasAlugados * 90
+    if (kmPercorridos <= 100) {
+    totalAPagar = valorTipo + (kmPercorridos * 0.2);
+    } else if (kmPercorridos > 100) {
+      totalAPagar = valorTipo + (kmPercorridos * 0.1);
+    }
+  }
+
+  if (tipoCarro == 2) {
+    tipo = 'luxo'
+    valorTipo = diasAlugados * 150
+
+    if (kmPercorridos <= 200) {
+      totalAPagar = valorTipo + (kmPercorridos * 0.30);
+    } else if (kmPercorridos > 200) {
+      totalAPagar = valorTipo + (kmPercorrido * 0.25)
+    }
+  }
+
+  alert(`Se você alugar um carro ${tipo} por ${diasAlugados} dias, para percorrer ${kmPercorridos.toString().replace('.', ',')} Km, pagará ${totalAPagar.toLocaleString("pt-BR", {style: "currency", currency: "BRL"})}`)
+}
+//alugaCarro()
 
 /*36) Um programa de vida saudável quer dar pontos atividades físicas que podem
 ser trocados por dinheiro. O sistema funciona assim:
@@ -348,7 +404,22 @@ ser trocados por dinheiro. O sistema funciona assim:
 - A cada ponto ganho, o cliente fatura R$0,05 (5 centavos)
 Faça um programa que leia quantas horas de atividade uma pessoa teve por mês,
   calcule e mostre quantos pontos ela teve e quanto dinheiro ela conseguiu ganhar.*/
+function vidaSaudavel() {
+  var horas = parseFloat(prompt('quantas horas de atividade você teve nesse mês?').replace(',', '.'))
+  
+  if (horas <= 10) {
+    pontos = horas * 2
+  } else if (10 < horas && horas <= 20) {
+    pontos = horas * 10
+  } else if (horas > 20) {
+    pontos = hors * 10
+  }
 
+  valor = pontos * 0.05
+
+  alert(`Você ganhou ${pontos} pontos. O valor a ser recebido é de ${valor.toLocaleString("pt-BR", {style: "currency", currency: "BRL"})}`)
+}
+//vidaSaudavel()
 
 /*37) Uma empresa precisa reajustar o salário dos seus funcionários, dando um
 aumento de acordo com alguns fatores. Faça um programa que leia o salário atual,
@@ -361,4 +432,45 @@ No final, mostre o seu novo salário, baseado na tabela a seguir:
 - Homens
 - menos de 20 anos de empresa: +3%
 - de 20 até 30 anos de empresa: +13%
-- mais de 30 anos de empresa: +25%*/
+- mais de 30 anos de empresa: +25% */
+
+function aumento() {
+  var salario = parseFloat(prompt('qual o salário atual do funcionário?'))
+  var genero = prompt(`qual o gênero? (M ou F)`).toLowerCase();
+  var anosEmpr = parseFloat(prompt('Há quantos anos essa pessoa trabalha na empresa?'))
+  var aumento = 0
+  if (genero = 'f') {
+    if (anosEmpr < 15) {
+      aumento = 5
+      acrescimo = salario * (aumento / 100)
+      novoSalario = salario + acrescimo
+    } else if (15 <= anosEmpr && anosEmpr <= 20) {
+      aumento = 12
+      acrescimo = salario * (aumento / 100)
+      novoSalario = salario + acrescimo
+    } else if (anosEmpr > 20) {
+      aumento = 23
+      acrescimo = salario * (aumento / 100)
+      novoSalario = salario + acrescimo
+    }
+  }
+
+  if (genero == 'm') {
+    if (anosEmpr < 20) {
+      aumento = 3
+      acrescimo = salario * (aumento / 100)
+      novoSalario = salario + acrescimo
+    } else if (20 <= anosEmpr && anosEmpr <= 30) {
+      aumento = 13
+      acrescimo = salario * (aumento / 100)
+      novoSalario = salario + acrescimo
+    } else if (anosEmpr > 30) {
+      aumento = 25
+      acrescimo = salario * (aumento / 100)
+      novoSalario = salario + acrescimo
+    }
+  }
+
+  alert(`Essa pessoa receberá um aumento de ${aumento}%, e seu novo salario será de: ${novoSalario.toLocaleString("pt-BR", {style: 'currency', currency: 'BRL'})}`)
+}
+//aumento()
