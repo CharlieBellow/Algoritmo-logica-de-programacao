@@ -260,7 +260,7 @@ d) Qual foi a maior idade lida*/
 
 
 /*53) Faça um programa que leia a idade e o sexo de 5 pessoas, mostrando no final:
-a) Quantos homens foram cadastrados
+a) Q2uantos homens foram cadastrados
 b) Quantas mulheres foram cadastradas
 c) A média de idade do grupo
 d) A média de idade dos homens
