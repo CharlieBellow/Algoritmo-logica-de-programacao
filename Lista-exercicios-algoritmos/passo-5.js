@@ -4,23 +4,23 @@
 somatório entre eles.
 Obs: O programa será interrompido quando o número 1111 for digitado*/
 
-//function somatorio() {
-//    var entrada;
-//    var resposta = "s";
-//    var soma = 0;
-//
-//  while (resposta == "s") {
-//    entrada = parseFloat(prompt("digite um número inteiro:"));
-//    if (entrada == 1111) {
-//      return alert("programa interrompido");
-//    }
-//    soma += entrada;
-//    resposta = prompt("quer continuar? (s/n)");
-//
-//
-//  }
-//  return alert(`A soma entre todos os números digitados é: ${soma}`);
-//}
+function somatorio() {
+    var entrada;
+    var resposta = "s";
+    var soma = 0;
+
+  while (resposta == "s") {
+    entrada = parseFloat(prompt("digite um número inteiro:"));
+    if (entrada == 1111) {
+      return alert("programa interrompido");
+    }
+    soma += entrada;
+    resposta = prompt("quer continuar? (s/n)");
+
+
+  }
+  return alert(`A soma entre todos os números digitados é: ${soma}`);
+}
 //somatorio()
 
 /*57) Desenvolva um aplicativo que leia o salário e o sexo de vários funcionários.
@@ -28,29 +28,29 @@ No final, mostre o total de salários pagos aos homens e o total pago às
 mulheres. O programa vai perguntar ao usuário se ele quer continuar ou não
 sempre que ler os dados de um funcionário.*/
 
-//function totalPago() {
-//  var resposta = "s"
-//  var n = 1
-//  var totalSalarioH = 0
-//  var totalSalarioM = 0;
-//  while (resposta == 's') {
-//    var salario = parseFloat(prompt("Qual é o salário da " + n + "ª pessoa?").replace(',','.'))
-//    var genero = prompt("qual é o gênero da " + n + "ª pessoa? (H / M)")
-//    var resposta = prompt("quer continuar? (s/n)")
-//    n += 1
-//
-//    if (genero == "h") {
-//      totalSalarioH += salario
-//    }
-//
-//    if (genero == "m") {
-//      totalSalarioM += salario;
-//    }
-//  }
-//
-//  alert(`O total pago aos Homens é: ${totalSalarioH.toLocaleString("pt-BR", {style: "currency", currency: "BRL",})};
-//  O total pago as mulheres é: ${totalSalarioM.toLocaleString("pt-BR", {style: "currency", currency: "BRL",})}`);
-//}
+function totalPago() {
+  var resposta = "s"
+  var n = 1
+  var totalSalarioH = 0
+  var totalSalarioM = 0;
+  while (resposta == 's') {
+    var salario = parseFloat(prompt("Qual é o salário da " + n + "ª pessoa?").replace(',','.'))
+    var genero = prompt("qual é o gênero da " + n + "ª pessoa? (H / M)")
+    var resposta = prompt("quer continuar? (s/n)")
+    n += 1
+
+    if (genero == "h") {
+      totalSalarioH += salario
+    }
+
+    if (genero == "m") {
+      totalSalarioM += salario;
+    }
+  }
+
+  alert(`O total pago aos Homens é: ${totalSalarioH.toLocaleString("pt-BR", {style: "currency", currency: "BRL",})};
+  O total pago as mulheres é: ${totalSalarioM.toLocaleString("pt-BR", {style: "currency", currency: "BRL",})}`);
+}
 
 //totalPago();
 
@@ -58,33 +58,33 @@ sempre que ler os dados de um funcionário.*/
 vai parar quando for digitada a idade 999. No final, mostre quantos alunos
 existem na turma e qual é a média de idade do grupo.*/
 
-//function alunos() {
-//  var soma = 0;
-//  var media
-//  var idades = 0
-//  var resposta = 's'
-//  var idade
-//  while (resposta == "s") {
-//
-//    idade = parseInt(prompt("informe a idade:"))
-//
-//    if (idade == 999) {
-//      return alert("programa interrompido");
-//    }
-//
-//    resposta = prompt("quer continuar? (s/n)")
-//
-//    //console.log(idade);
-//
-//    soma += idade
-//    idades += 1
-//  }
-//
-//  media = soma / idades
-//  //alert(`Existe ${} alunos na turma e a média das idades é: ${}`)
-//  return alert(`Existe ${idades} alunos na turma e a média das idades é: ${media}`)
-//
-//}
+function alunos() {
+  var soma = 0;
+  var media
+  var idades = 0
+  var resposta = 's'
+  var idade
+  while (resposta == "s") {
+
+    idade = parseInt(prompt("informe a idade:"))
+
+    if (idade == 999) {
+      return alert("programa interrompido");
+    }
+
+    resposta = prompt("quer continuar? (s/n)")
+
+    //console.log(idade);
+
+    soma += idade
+    idades += 1
+  }
+
+  media = soma / idades
+  //alert(`Existe ${} alunos na turma e a média das idades é: ${}`)
+  return alert(`Existe ${idades} alunos na turma e a média das idades é: ${media}`)
+
+}
 //alunos()
 
 /*59) Crie um programa que leia o sexo e a idade de várias pessoas. O programa vai
@@ -94,52 +94,52 @@ b) quantos homens foram cadastrados
 c) qual é a idade da mulher mais jovem
 d) qual é a média de idade entre os homens*/
 
-//function tretaDasIdades() {
-//  var resposta = 's'
-//  var quantosH = 0
-//  var maiorIdade = 0
-//  var somaIdades = 0
-//  var idade
-//  var menorIdadeM = 0
-//
-//  while (resposta == 's') {
-//
-//    idade = parseInt(prompt('qual é a idade dessa pessoa?'))
-//    genero = prompt('qual é o gênero? (M / F)').toLowerCase()
-//    resposta = prompt('quer continuar? (s/n)')
-//
-//    //a) qual é a maior idade lida
-//    if (idade > maiorIdade) {
-//      maiorIdade = idade
-//    }
-//
-//    //b) quantos homens foram cadastrados
-//    if (genero == "m") {
-//      quantosH += 1
-//    }
-//    //c) qual é a idade da mulher mais jovem
-//    if (genero == 'f') {
-//      if (menorIdadeM == 0) {
-//				menorIdadeM = idade;
-//			}
-//
-//      if (idade < menorIdadeM) {
-//				menorIdadeM = idade;
-//			}
-//  }
-//    //d) qual é a média de idade entre os homens
-//    somaIdades += idade
-//  }
-//
-//  media = somaIdades / quantosH
-//
-//  alert(`
-//  A maior idade digitada é: ${maiorIdade};
-//  ${quantosH} homens foram cadastrados;
-//  A idade da mulher mais jovem é: ${menorIdadeM};
-//  A média de idade dos Homens é: ${media}
-//  `)
-//}
+function tretaDasIdades() {
+  var resposta = 's'
+  var quantosH = 0
+  var maiorIdade = 0
+  var somaIdades = 0
+  var idade
+  var menorIdadeM = 0
+
+  while (resposta == 's') {
+
+    idade = parseInt(prompt('qual é a idade dessa pessoa?'))
+    genero = prompt('qual é o gênero? (M / F)').toLowerCase()
+    resposta = prompt('quer continuar? (s/n)')
+
+    //a) qual é a maior idade lida
+    if (idade > maiorIdade) {
+      maiorIdade = idade
+    }
+
+    //b) quantos homens foram cadastrados
+    if (genero == "m") {
+      quantosH += 1
+    }
+    //c) qual é a idade da mulher mais jovem
+    if (genero == 'f') {
+      if (menorIdadeM == 0) {
+				menorIdadeM = idade;
+			}
+
+      if (idade < menorIdadeM) {
+				menorIdadeM = idade;
+			}
+  }
+    //d) qual é a média de idade entre os homens
+    somaIdades += idade
+  }
+
+  media = somaIdades / quantosH
+
+  alert(`
+  A maior idade digitada é: ${maiorIdade};
+  ${quantosH} homens foram cadastrados;
+  A idade da mulher mais jovem é: ${menorIdadeM};
+  A média de idade dos Homens é: ${media}
+  `)
+}
 //tretaDasIdades()
 
 /*60) Desenvolva um algoritmo que leia o nome, a idade e o sexo de várias pessoas.
