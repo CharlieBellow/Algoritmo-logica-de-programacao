@@ -54,7 +54,9 @@ Ex: Digite um valor: 35
 Contagem: 1 2 3 4 5 6 7 ... 33 34 35 Acabou!*/
 
 function cont35() {
-	for (let i = 1; i <= 35; i++) {
+
+	var valor = parseInt(prompt("digite um número inteiro e positivo:"))
+	for (let i = 1; i <= valor; i++) {
 		console.log(i);
 	}
 	console.log("Acabou!");
@@ -100,23 +102,44 @@ maior que o último. Resolva esse problema com um código que funcione em qualqu
 situação.*/
 
 function incremento(partida, chegada, pula) {
-	comeco = partida;
-	fim = chegada;
-	operacao = Math.min(comeco, fim);
+	posicaoAtual = partida
 
-	if (operacao == comeco) {
-		while (comeco < fim) {
-			console.log(comeco);
-			comeco = comeco + pula;
+	if (partida < chegada) {
+		while (posicaoAtual <= chegada) {
+			console.log(posicaoAtual);
+			posicaoAtual += pula
 		}
 	}
-
-	if (operacao == fim) {
-		while (comeco >= fim) {
-			console.log(comeco);
-			comeco = comeco - pula;
+	
+	if (partida > chegada) {
+		while (posicaoAtual >= chegada) {
+			console.log(posicaoAtual);
+			posicaoAtual -= pula
 		}
+		
 	}
+
+	
+	// exemplo do que não fazer nas próximas!
+//	comeco = partida;
+//	fim = chegada;
+//	valorAtual
+//	operacao = Math.min(comeco, fim);
+//
+//	if (operacao == comeco) {
+//		while (comeco < fim) {	
+//			console.log(comeco);
+//			comeco = comeco + pula;
+//
+//		}
+//	}
+//
+//	if (operacao == fim) {
+//		while (comeco >= fim) {
+//			console.log(comeco);
+//			comeco = comeco - pula;
+//		}
+//	}
 }
 
 //incremento(3, 10, 2)
@@ -124,36 +147,59 @@ function incremento(partida, chegada, pula) {
 
 /*46) Crie um programa que calcule e mostre na tela o resultado da soma entre 6 +
 8 + 10 + 12 + 14 + ... + 98 + 100.*/
+function soma() {
+	valorAtual = 6
+	calc = 0
 
-function fibo(num1, num2, nItem) {
-	while (num2 <= nItem) {
-		fibo = num1 + num2;
-		//console.log(fibo);
-		num1 = fibo;
-		num2 = num2 + 2;
-		if (num2 == nItem) {
-			resultado = num1 + num2;
-			console.log(resultado);
-		}
+	while (valorAtual <= 100) {
+		calc += valorAtual
+		valorAtual += 2
 
-		//
-		//  if (nItem == 1) {
-		//    return num1
-		//}
-		//
-		//  if (nItem == 2) {
-		//    return num2;
-		//  }
-		//
-		//
-		//  return fibo(num1, num2, nItem - 1) + fibo(num1, num2, nItem - 2)
 	}
+	
+	console.log(calc);
 }
+
+//soma()
+//function fibo(num1, num2, nItem) {
+//	while (num2 <= nItem) {
+//		fibo = num1 + num2;
+//		//console.log(fibo);
+//		num1 = fibo;
+//		num2 = num2 + 2;
+//		if (num2 == nItem) {
+//			resultado = num1 + num2;
+//			console.log(resultado);
+//		}
+//
+//		//
+//		//  if (nItem == 1) {
+//		//    return num1
+//		//}
+//		//
+//		//  if (nItem == 2) {
+//		//    return num2;
+//		//  }
+//		//
+//		//
+//		//  return fibo(num1, num2, nItem - 1) + fibo(num1, num2, nItem - 2)
+//	}
+//}
 
 //fibo(6, 8, 100)
 
 /*47) Desenvolva um aplicativo que mostre na tela o resultado da expressão 500 +
 450 + 400 + 350 + 300 + ... + 50 + 0*/
+
+// CORRIGIR COM BASE NO 46
+
+/* 
+ex 47
+
+Novamente, bem confuso. Você se baseou no problema do Fibonacci, mas são situações diferentes (inclusive, esse exercício é mais fácil).
+
+Use o que você fez no ex 45 e no ex 48 em conjunto, para montar um array e, então, somá-lo
+Mesmo comentário do 46 */
 
 function conta(num1, num2, nItem) {
 	while (num2 >= nItem) {
@@ -167,8 +213,23 @@ function conta(num1, num2, nItem) {
 		}
 	}
 }
-
 //conta(500, 450, 0);
+
+// correção: 47)
+function conta(partida, chegada, pula) {
+	novoValor = partida
+	somar = 0
+
+	while (novoValor >= chegada) {
+		somar += novoValor
+		novoValor -= pula;
+	}
+	
+	console.log(somar);
+}
+
+//conta(500, 0, 50);
+
 
 /*48) Faça um programa que leia 7 números inteiros e no final mostre o somatório
 entre eles.*/
@@ -220,7 +281,7 @@ function vinteNum() {
 	var divideTreis = 0;
 
 	for (let i = 1; i <= 20; i++) {
-		num = Math.floor(Math.random() * 10);
+		num = Math.floor(Math.random() * 11); // 10 => 11
 		arr.push(num);
 
 		if (num > 5) {
@@ -245,69 +306,126 @@ function vinteNum() {
 qual foi o maior e qual foi o menor preço digitados.*/
 // rever esse pra entender melhor ou tirar dúvida com o Gustavo
 
+
+/* Ex 51
+
+Problema ao calcular máximo (e faltou calcular o mínimo). Veja com comentário abaixo */
+//var itens = [
+//	{ produto: "calça", preco: 80.5 },
+//	{ produto: "blusa", preco: 28.47 },
+//	{ produto: "dockside", preco: 68.45 },
+//	{ produto: "bermuda", preco: 26.44 },
+//	{ produto: "colar", preco: 70.4 },
+//	{ produto: "tênis", preco: 80.1 },
+//	{ produto: "boné", preco: 80.56 },
+//	{ produto: "camisa", preco: 25.48 },
+//];
+////console.log(arr[0].preco);
+//
+//
+//function produtos(arr) {
+//	var precoAtual = 0;
+//
+//	for (let i = 0; i <= arr.length; i++) {
+//		//var maisBarato = 0
+//		//console.log(arr[i].preco);
+//		// preciso colocar algum valor dentro da variável precoAtual, se nao vai dar undefined e ele não vai ter com o que comparar.
+//		if (precoAtual == 0) {
+//			precoAtual = arr[i].preco;
+//		}
+//
+//		//var maisBarato = 0;
+//
+//		if (precoAtual > arr[i].preco) {
+//			precoAtual = arr[i].preco;
+//			var maisBarato = arr[i];
+//			//console.log("preçoAtual " + precoAtual + " + arr[i].preco " + arr[i].preco);
+//
+//			//console.log("preçoAtual " + precoAtual);
+//			// pq o console só é exibido se estiver aqui dentro e não exibe fora desse if?
+//		}
+//		
+//		return console.log(
+//			"o produto mais barato é: " +
+//				maisBarato.produto +
+//				", custando: " +
+//				maisBarato.preco.toLocaleString("pt-BR", {
+//					style: "currency",
+//					currency: "BRL",
+//				})
+//		);
+//		//console.log("maisBarato " + maisBarato);
+//	}
+//	//console.log(
+//	//	"o produto mais barato é: " +
+//	//		maisBarato.produto +
+//	//		", custando: " +
+//	//		maisBarato.preco.toLocaleString("pt-BR", {
+//	//			style: "currency",
+//	//			currency: "BRL",
+//	//		})
+//	//);
+//}
+//
+////produtos(itens)
+
+// correção: 51)
+// CORRIGIR E COLOCAR O CALCULO DO MENOR VALOR
+// ainda estou com dificuldade em fazer esse.
 var itens = [
 	{ produto: "calça", preco: 80.5 },
-	{ produto: "camisa", preco: 25.48 },
 	{ produto: "blusa", preco: 28.47 },
 	{ produto: "dockside", preco: 68.45 },
 	{ produto: "bermuda", preco: 26.44 },
 	{ produto: "colar", preco: 70.4 },
 	{ produto: "tênis", preco: 80.1 },
 	{ produto: "boné", preco: 80.56 },
+	{ produto: "camisa", preco: 25.48 },
 ];
-//console.log(arr[0].preco);
 
 function produtos(arr) {
-	var precoAtual = 0;
+	var precoBarato = 0;
+	var precoCaro = 0;
+	var maisBarato = 0
+	var maisCaro = 0
 
-	for (let i = 0; i <= arr.length; i++) {
-		//var maisBarato = 0
-		//console.log(arr[i].preco);
-		// preciso colocar algum valor dentro da variável precoAtual, se nao vai dar undefined e ele não vai ter com o que comparar.
-		if (precoAtual == 0) {
-			precoAtual = arr[i].preco;
+	for (var i = 0; i < arr.length; i++) {
+
+		
+		if (precoCaro < arr[i].preco) {
+			precoCaro = arr[i].preco;
+			maisCaro = i;
 		}
 
-		//var maisBarato = 0;
+		// depois que ele achar o maior, eu pego esse valor e comparo com os outros pra achar o menor
+
+		precoAtual = precoCaro;
 
 		if (precoAtual > arr[i].preco) {
-			precoAtual = arr[i].preco;
-			var maisBarato = arr[i];
-			//console.log("preçoAtual " + precoAtual + " + arr[i].preco " + arr[i].preco);
-
-			//console.log("preçoAtual " + precoAtual);
-			// pq o console só é exibido se estiver aqui dentro e não exibe fora desse if?
-			return console.log(
-				"o produto mais barato é: " +
-					maisBarato.produto +
-					", custando: " +
-					maisBarato.preco.toLocaleString("pt-BR", {
-						style: "currency",
-						currency: "BRL",
-					})
-			);
+			precoBarato = arr[i].preco;
+			maisBarato = i;
 		}
-
-		//console.log("maisBarato " + maisBarato);
 	}
-	//console.log(
-	//	"o produto mais barato é: " +
-	//		maisBarato.produto +
-	//		", custando: " +
-	//		maisBarato.preco.toLocaleString("pt-BR", {
-	//			style: "currency",
-	//			currency: "BRL",
-	//		})
-	//);
+	
+	console.log("o produto mais barato é: " + arr[maisBarato].produto + ", custando: " + precoBarato.toLocaleString("pt-BR", { style: "currency", currency: "BRL", }));
+
+	console.log("o produto mais caro é: " + arr[maisCaro].produto + ", custando: " + precoCaro.toLocaleString("pt-BR", { style: "currency", currency: "BRL", }));	
+
 }
 
 //produtos(itens)
 
+
+
+// ----------------------------------------------------------------------------------------------------------------------------------
 /*52) Crie um algoritmo que leia a idade de 10 pessoas, mostrando no final:
 a) Qual é a média de idade do grupo
 b) Quantas pessoas tem mais de 18 anos
 c) Quantas pessoas tem menos de 5 anos
 d) Qual foi a maior idade lida*/
+// FAZER AS TABELAS DE ANTES E DEPOIS DA CORREÇÃO.
+
+// antes da correção e modelo da tabela 1
 var ages = [
 	{ name: "Chris", age: 4 },
 	{ name: "Manon", age: 3 },
@@ -360,7 +478,7 @@ function age(arr) {
 			currentAge = arr[i].age;
 			oldestOne.push(arr[i]);
 		}
-	}
+	} // FIM DO FOR
 
 	var average = averageAge / arr.length;
 
@@ -378,6 +496,68 @@ function age(arr) {
 
 //age(ages)
 
+// depois da correção e modelo da tabela 2
+
+/* Ex 52 - GUSTAVO:
+Realmente, esta forma de calcular o máximo de um conjunto de elementos é bem estranha. Tente fazer de outra maneira, que não precise criar um outro conjunto de elementos separado. 
+
+*/
+// - Minha ideia para a correção: VOU TENTAR SALVAR A POSIÇÃO DO i EM UMA VARIÁVEL "INDICE" E VER SE CONSIGO EXIBIR NO FINAL ESSA VARIÁVEL COLOCANDO AGES[INDICE].NAME E AGES[INDICE].AGE 
+
+var ages = [
+	{ name: "Chris", age: 4 },
+	{ name: "Manon", age: 3 },
+	{ name: "Zoe", age: 14 },
+	{ name: "Marinette", age: 13 },
+	{ name: "Adrian", age: 14 },
+	{ name: "Alya", age: 13 },
+	{ name: "Nino", age: 14 },
+	{ name: "Gabriel", age: 37 },
+	{ name: "Cloe", age: 16 },
+	{ name: "Sabrina", age: 15 },
+];
+
+function age(arr) {
+	var oldestOne;
+	var currentAge = 0;
+
+	var averageAge = 0;
+	var greaterThan18Years = 0;
+	var lowerThan5Years = 0;
+
+	for (let i = 0; i < arr.length; i++) {
+		//média de idades
+		averageAge += arr[i].age;
+
+		// maiores de 18 anos
+		if (arr[i].age > 18) {
+			greaterThan18Years += 1;
+		}
+
+		// menores que 5 anos
+
+		if (arr[i].age < 5) {
+			lowerThan5Years += 1;
+		}
+
+		// maior idade
+		if (currentAge < arr[i].age) {
+			currentAge = arr[i].age;
+			oldestOne = i;
+		}
+	} // FIM DO FOR
+
+	var average = averageAge / arr.length;
+
+	console.log("A média das idades é: " + average);
+	console.log("Existem " + greaterThan18Years + " pessoas maiores de 18 anos");
+	console.log("Existem " + lowerThan5Years + " pessoas menores que 5 anos");
+	console.log("A maior idade é de: " + ages[oldestOne].name + " com " + ages[oldestOne].age + " anos.");
+}
+
+//age(ages);
+
+// -----------------------------------------------------------------------------------------------
 /*53) Faça um programa que leia a idade e o sexo de 5 pessoas, mostrando no final:
 a) Quantos homens foram cadastrados
 b) Quantas mulheres foram cadastradas
@@ -494,32 +674,77 @@ tentativas para tentar acertar.
 32) [DESAFIO] Crie um jogo onde o computador vai sortear um número entre 1 e 5 o
 jogador vai tentar descobrir qual foi o valor sorteado.
 */
+// CORRIGIR
 
-var tentativas = [0, 5, 0, 10];
+/* Ex 55
+
+Está correto. Mas tente modificar para só mostrar a mensagem 1 vez no final (vitória se pelo menos 1 dos números for o correto, derrota se nenhum for) */
+
+//var tentativas = [0, 5, 0, 10];
 //var tentativas = [2, 5, 5, 10];
 //var tentativas = [1, 2, 3, 14];
 //var tentativas = [1, 2, 3, 4];
+//
+//function sorteio(arr) {
+//	var sorteio = Math.ceil(Math.random() * 10);
+//	for (let i = 0; i < arr.length; i++) {
+//		if (arr[i] == sorteio) {
+//			return console.log(
+//				`parabéns, você acertou, o número sorteado foi: ${sorteio} e sua ${
+//					i + 1
+//				}ª tentativa foi: ${arr[i]}`
+//			);
+//		}
+//
+//		if (arr[i] > 10 || arr[i] <= 0) {
+//			return console.log(`sua tentativa ${i + 1} não estão entre 1 e 10`);
+//			continue;
+//		}
+//
+//		return console.log(
+//			`Você errou! O número que eu sorteei foi: ${sorteio} e você chutou: ${
+//				tentativas[i]
+//			} na ${i + 1}ª tentativa.`
+//		);
+//	}
+//}
+//sorteio(tentativas)
 
+// correção:
+// consegui mas tive dificuldade!
+var tentativas = [0, 5, 0, 10];
 function sorteio(arr) {
 	var sorteio = Math.ceil(Math.random() * 10);
+	var resultado = 0
 	for (let i = 0; i < arr.length; i++) {
+		//console.log(i);
 		if (arr[i] == sorteio) {
-			return console.log(
-				`parabéns, você acertou, o número sorteado foi: ${sorteio} e sua ${
-					i + 1
-				}ª tentativa foi: ${arr[i]}`
-			);
+			resultado = "Parabéns, você acertou"
+			nTentativa = i
+			
+		} else {
+			resultado = "Você errou";
+			nTentativa = i;
 		}
-		if (arr[i] > 10 || arr[i] <= 0) {
-			console.log(`sua tentativa ${i + 1} não estão entre 1 e 10`);
-			continue;
-		}
-
-		console.log(
-			`Você errou! O número que eu sorteei foi: ${sorteio} e você chutou: ${
-				tentativas[i]
-			} na ${i + 1}ª tentativa.`
-		);
+		
 	}
+
+	if (resultado == "Parabéns, você acertou") {
+		console.log(
+			`${resultado}, o número sorteado foi: ${sorteio} e a ${
+				nTentativa + 1
+			} tentativa foi: ${arr[nTentativa]}.`
+		);
+
+	}
+	
+	if (resultado == "Você errou") {
+		console.log(
+			`${resultado}, o número sorteado foi: ${sorteio} e nenhuma dessas tentativas: ${arr} corresponde à resposta.`);
+	}
+
+	
+
+	
 }
-//sorteio(tentativas)
+//sorteio(tentativas);
