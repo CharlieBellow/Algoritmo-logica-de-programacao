@@ -112,6 +112,7 @@ function numeros() {
 		//a) O somatório entre todos os valores
 		soma += numero;
 
+		//resolver o erro
 		//b) Qual foi o menor valor digitado
 		if (menorNumero == 0) {
 			menorNumero = numero;
@@ -138,3 +139,9 @@ function numeros() {
   `);
 }
 //numeros()
+
+
+
+// criar utra função que recebe uma lista de números como argumento e retorna  mínimo. 
+// precisa funcionar qd o número for zero e menor do que zero também
+// corrigir o exercício 63 - guardar os números na lita e depois passar a lista na função e retornar o menor número pra exibir
