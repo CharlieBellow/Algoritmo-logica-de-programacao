@@ -104,23 +104,39 @@ function numeros() {
 	var qtNumeros = 0;
 	var menorNumero = 0;
 	var nPares = 0;
+	var lista = []
+	var menorValor;
 
 	do {
 		numero = parseInt(prompt("digite um número:"));
 		resposta = prompt("quer continuar? (s/n)");
+		//resposta = "s"
+
+		lista.push(numero)
+
 
 		//a) O somatório entre todos os valores
 		soma += numero;
 
 		//resolver o erro
 		//b) Qual foi o menor valor digitado
-		if (menorNumero == 0) {
-			menorNumero = numero;
-		}
+		//var lista = [3, 5, 3, 4, 6, 7];
 
-		if (numero < menorNumero) {
-			menorNumero = numero;
+		function menorNumero(arr) {
+			var atual = 0;
+			while (atual < arr.length) {
+				let analise = atual;
+				if (analise > 0 && arr[analise] < arr[analise - 1])
+					menorValor = arr[analise];
+
+				atual++;
+			}
+			return menorValor;
 		}
+		menorNumero(lista);
+
+		//console.log(menorValor);
+	
 		//c) A média entre todos os valores
 		qtNumeros += 1;
 
@@ -128,20 +144,22 @@ function numeros() {
 		if (numero % 2 == 0) {
 			nPares += 1;
 		}
+
+		
 	} while (resposta == "s");
 
-	media = soma / qtNumeros;
+	var media = soma / qtNumeros;
 
 	alert(`O somatório entre todos os valores é: ${soma};
-  o menor valor digitado foi: ${menorNumero};
+  o menor valor digitado foi: ${menorValor};
   A média entre todos os valores é: ${media.toFixed(2)};
   ${nPares} valores são pares
   `);
 }
-//numeros()
+numeros()
 
 
 
-// criar utra função que recebe uma lista de números como argumento e retorna  mínimo. 
+// criar outra função que recebe uma lista de números como argumento e retorna o mínimo. 
 // precisa funcionar qd o número for zero e menor do que zero também
-// corrigir o exercício 63 - guardar os números na lita e depois passar a lista na função e retornar o menor número pra exibir
+// corrigir o exercício 63 - guardar os números na lista e depois passar a lista na função e retornar o menor número pra exibir

@@ -299,32 +299,88 @@ function notas() {
 //os valores ordenados.
 
 function crescente() {
-  let arr = [20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
-  var valorAtual 
-  var valorAnterior = 0
-  
-  for (let i = 0; i < arr.length; i++) {
-    if (valorAnterior == 0) {
-      valorAnterior = arr[i]
-    }
-    
-    valorAtual = arr[i]
-    
-    if (valorAtual > valorAnterior) {
-      arr[i] = valorAnterior
-    }
+  let arr = new Array(20);
 
+  for (let i = 0; i < arr.length; i++) {
+    arr[i] = Math.floor(Math.random() * 100);
+    
   }
+
+  console.log(arr);
+
+
+	// fiz usando o método insertionSort que aprendi. Mas ainda quero debugar pra entender melhor a lógica desse código
+
+	for (let atual = 0; atual < arr.length; atual++) {
+		let analise = atual;
+		while (analise > 0 && arr[analise] < arr[analise - 1]) {
+			itemAnalise = arr[analise];
+			itemAnterior = arr[analise - 1];
+			arr[analise] = itemAnterior;
+			arr[analise - 1] = itemAnalise;
+
+			analise--;
+		}
+	}
+
 	console.log(arr);
 }
 
-
-crescente()
+//crescente()
 
 //84) Crie um programa que leia o nome e a idade de 9 pessoas e guarde esses
 //valores em dois vetores, em posições relacionadas. No final, mostre uma listagem
 //contendo apenas os dados das pessoas menores de idade.
 
+var pessoas = [
+{nome: "Lady Bug", idade: 16},
+{nome: "Cat Noir", idade: 17},
+{nome: "Rena Rouge", idade: 15},
+{nome: "Carapace", idade: 16},
+{nome: "Queen Bee", idade: 15},
+{nome: "Monarch", idade: 37},
+{nome: "Maiura", idade: 28},
+{nome: "Vesperia", idade: 14},
+{nome: "Volpina", idade: 15}
+]
+
+function menorIdade(array) {
+  var menorIdade = []
+  for (let i = 0; i < array.length; i++) {
+    if (array[i].idade < 18) {
+    menorIdade.push(array[i])
+    }
+  }
+
+// tem diferença se eu mostrar os dados com o spread operation e se seu mostrar direto no console. Como faço para usar spread operator e exibir em um console só o texto e o array sem que ele mostre o array assim: [objeto, objeto, objeto....]?
+  console.log("Esses são os menor de idade: ");
+  console.log(menorIdade);
+}
+
+//menorIdade(pessoas)
+
 //85) Faça um algoritmo que leia o nome, o sexo e o salário de 5 funcionários e
 //guarde esses dados em três vetores. No final, mostre uma listagem contendo
 //apenas os dados das funcionárias mulheres que ganham mais de R$5 mil.
+
+let funcionarios = [
+	{ nome: "Patty", genero: "f", salario: 5500 },
+	{ nome: "Charlie", genero: "m", salario: 1500 },
+	{ nome: "Mineia", genero: "f", salario: 5500 },
+	{ nome: "Gustavo", genero: "m", salario: 1500 },
+	{ nome: "Luca", genero: "f", salario: 2000 },
+];
+
+function girlPower(array) {
+  var girls = []
+  for (let i = 0; i < array.length; i++) {
+    if (array[i].genero == "f" && array[i].salario >= 5000) {
+      girls.push(array[i])
+    }
+    
+  }
+
+  console.log(girls);
+}
+
+//girlPower(funcionarios)
