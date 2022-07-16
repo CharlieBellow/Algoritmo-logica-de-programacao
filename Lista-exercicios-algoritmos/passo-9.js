@@ -102,17 +102,16 @@ function GeradorOpcao(mensagem, vezes, borda) {
 function procedimento() {
   function Somador(n1, n2) {
     soma = n1 + n2;
-    return soma
+    alert(`A soma entre ${num1} e ${num2} é: ${soma}`);
   }
 
   num1 = parseInt(prompt("Digite o primeiro número da soma: "));
   num2 = parseInt(prompt("Digite o segundo número da soma:"));
   Somador(num1, num2)
 
-  alert(`A soma entre ${num1} e ${num2} é: ${soma}`);
 }
 
-//procedimento()
+procedimento()
 
 
 //91) Desenvolva um algoritmo que leia dois valores pelo teclado e passe esses
