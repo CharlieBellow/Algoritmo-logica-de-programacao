@@ -111,7 +111,7 @@ function procedimento() {
 
 }
 
-procedimento()
+//procedimento()
 
 
 //91) Desenvolva um algoritmo que leia dois valores pelo teclado e passe esses
@@ -205,20 +205,22 @@ function Fibo() {
   function Fibonacci(nTermos) {
     var v1 = 0
     var v2 = 1
-    var novoValor = 0
-    for (let i = 0; i < (nTermos - 2); i++) {
+    var novoValor = v1 + v2
+    for (let i = 0; i < (nTermos); i++) {
 
-      if (v1 == 0 && v2 == 1) {
-        console.log(v1);
-        console.log(v2);
-      }
-      novoValor = v1 + v2
+      //if (v1 == 0 && v2 == 1) {
+      //  console.log(v1);
+      //  console.log(v2);
+      //}
       console.log(novoValor);
+      novoValor = v1 + v2
   
       v1 = v2
       v2 = novoValor
     }
   }  
   Fibonacci(7)
+  //Fibonacci(2);
+
 }
-//Fibo()
+Fibo()
