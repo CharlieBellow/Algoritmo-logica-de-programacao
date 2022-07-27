@@ -202,25 +202,31 @@ function contagem() {
 //Fibonacci(5) vai gerar 1 >> 1 >> 2 >> 3 >> 5 >> FIM
 //Fibonacci(9) vai gerar 1 >> 1 >> 2 >> 3 >> 5 >> 8 >> 13 >> 21 >> 34 >> FIM
 function Fibo() {
-  function Fibonacci(nTermos) {
-    var v1 = 0
-    var v2 = 1
-    var novoValor = v1 + v2
-    for (let i = 0; i < (nTermos); i++) {
+	function Fibonacci(nTermos) {
+		var v1 = 0;
+    var v2 = 1;
+    var novoValor = v1 + v2;
+    
+		for (let i = 0; i < nTermos; i++) {
+    
+        
+        
+        if (nTermos == 1) {
+            novoValor = v1+v2;
+          }
+    
+      
+			console.log(novoValor);
+			novoValor = v1 + v2;
 
-      //if (v1 == 0 && v2 == 1) {
-      //  console.log(v1);
-      //  console.log(v2);
-      //}
-      console.log(novoValor);
-      novoValor = v1 + v2
-  
-      v1 = v2
-      v2 = novoValor
-    }
-  }  
-  Fibonacci(7)
-  //Fibonacci(2);
-
+			v1 = v2;
+			v2 = novoValor;
+		}
+  }
+	//Fibonacci(7)
+  // de acorodo com o exemplo, o primeiro termo a ser mostrado é o 1, e o 1 se repete caso nTermos seja 2. Pois a ideia do Fibonacci é mostrar a soma entre 0 e 1 (que é igual a 1) e ir acrescendo mais 1 e somando com o valor anterior.
+	//Fibonacci(1); // mostre "index" posição 0 ?
+	Fibonacci(2); // mostre "index" posição 1 ?
+  console.log("Fim!");
 }
 Fibo()
