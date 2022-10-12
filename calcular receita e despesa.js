@@ -58,7 +58,7 @@ var despesas = [
 	variaveis = [
     //{ nome: "lazer / PS", valor: 60 },
 		//{ nome: "restaurante", valor: 100 },
-		{ nome: "Transporte", valor: 448 }, //20
+		{ nome: "Transporte", valor: 228 }, //20
     //{ nome: "imprevisto", valor: 150 },
     //{ nome: "viagens", valor: 350 },
     //{ nome: "telefone", valor: 30 },
